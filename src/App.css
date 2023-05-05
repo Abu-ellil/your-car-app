@@ -1,11 +1,13 @@
-.App {
+.main {
   text-align: center;
+  position: relative;
+width: 1440px;
+height: 6297px;
+display: flex;
+flex-direction: column;
+background: #FAFAFA;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
