@@ -1,6 +1,6 @@
 .hero{
 height: 100vh;
-background: linear-gradient(90deg, rgba(0, 9, 26, 0.45) 32.41%, rgba(0, 0, 0, 0) 65.08%), url(img/Background.png);
+background: linear-gradient(90deg, rgba(0, 9, 26, 0.45) 32.41%, rgba(0, 0, 0, 0) 65.08%), url(../img/Background.png);
 transform: matrix(1, 0, 0, 1, 0, 0);
 }
 

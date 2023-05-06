@@ -2,7 +2,7 @@
   text-align: center;
   position: relative;
 width: 1440px;
-height: 6297px;
+min-height:100vh;
 display: flex;
 flex-direction: column;
 background: #FAFAFA;
