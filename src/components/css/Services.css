@@ -1,0 +1,30 @@
+.services{
+height: 100vh;
+background: linear-gradient(90deg, rgba(0, 9, 26, 0.45) 32.41%, rgba(0, 0, 0, 0) 65.08%), url(../img/CTA-BG.png);
+transform: matrix(1, 0, 0, 1, 0, 0);
+}
+.service{
+    display: flex;
+    padding:10rem 3rem;
+    gap: 7rem;
+}
+.service-title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #12273D;
+    padding: 20px 0;
+}
+
+.service-text{
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.services h2{
+    font-size: 3rem;
+    position: absolute;
+    top: 25px;
+    left: 44%;
+    color: #12273D;
+    padding: 10px;
+}

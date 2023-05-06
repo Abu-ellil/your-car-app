@@ -1,0 +1,50 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+.footer-body{
+    display: flex;
+    padding: 40px;
+    gap: 5rem;
+}
+.footer-body h2{
+    color: #741906;
+}
+
+.foo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+
+/* Subscribe */
+
+
+
+.subscribe{
+    display: flex;gap: 1rem;
+}
+.subscribe input{
+    height: 2rem;
+    padding-left: 1rem;
+    border: #741906 solid 1px;
+}
+.sub{
+    background-color: #741906;
+    padding: 10px 25px;
+    border: none;
+    color: #fff;
+}
+
+/* Copy Rights */
+
+.rights{
+    border-top: 2px solid #741906;
+    width: 70%;
+}

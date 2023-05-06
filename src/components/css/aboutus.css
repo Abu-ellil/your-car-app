@@ -23,7 +23,7 @@
 }
 .about-content{
     display: flex;
-    padding:0 40px;
+    padding:0 3rem;
     text-align: start;
     font-size: 26px;
     gap: 40px;

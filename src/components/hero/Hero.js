@@ -1,8 +1,8 @@
 import React from 'react'
 import Nav from './navbar/Nav'
 import Discover from './Discover'
-import classes from './navbar/Nav.css'
-import hero from './hero.css'
+import classes from '../css/Nav.css'
+import hero from '../css/hero.css'
 
 const Hero = () => {
   return (

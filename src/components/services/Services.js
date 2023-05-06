@@ -1,6 +1,8 @@
 import React from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import classes from './Services.css'
+import { ReactComponent as Star } from "../img/ico/star.svg";
+import { ReactComponent as Rent } from "../img/ico/11.svg";
+import { ReactComponent as Sell } from "../img/ico/diamond.svg";
+import classes from '../css/Services.css'
 
 const Services = () => {
   return (
@@ -10,7 +12,7 @@ const Services = () => {
       <div className="service">
         <div className="car-sales">
           <div className="ico ">
-            <i><img src="../img/ico/s" alt="" /></i>
+            <Star />
           </div>
           <div className="service-title">Car sales</div>
           <div className="service-text">
@@ -21,12 +23,7 @@ const Services = () => {
         </div>
         <div className="car-sales">
           <div className="ico">
-            
-            
-
-
-
-
+            <Rent />
           </div>
           <div className="service-title">Car rental</div>
           <div className="service-text">
@@ -38,14 +35,7 @@ const Services = () => {
         </div>
         <div className="car-sales">
           <div className="ico">
-
-
-            
-            
-
-
-
-
+            <Sell />
           </div>
           <div className="service-title">Car selling</div>
           <div className="service-text">

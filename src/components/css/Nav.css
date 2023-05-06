@@ -1,0 +1,35 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    font-size: 28px;
+    color: #fff;
+    padding:20px 70px ;
+}
+.logo span{
+    font-weight: 700;
+    font-family: 'Lora';
+}
+.links{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    text-align: center;
+}
+.links li a{
+    text-decoration: none;
+    color: #fff;
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 33px;
+}
+.links-cart{
+    display: flex;
+    gap: 20px;
+}
+.active{
+    background-color: #741906;
+    padding:4px 8px;
+    border-radius: 9px;
+    
+}

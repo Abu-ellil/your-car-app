@@ -1,0 +1,25 @@
+.cars-gallery {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: url('../img/Cars.png');
+  background-size: cover;
+  background-position: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.cars-gallery h1 {
+  color: #fff;
+}
+.cars-gallery p {
+  color: #fff;
+  padding-bottom: 20px;
+}
+.cars-gallery button {
+  color: #fff;
+  padding: 8px 35px;
+  font-size: 22px;
+}
+
