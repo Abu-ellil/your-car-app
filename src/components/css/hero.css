@@ -24,12 +24,19 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     font-size: 2.5rem;
     width: 70%;
 }
-.hero-text button{
+.hero-text a{
+    text-decoration: none;
     font-size: 22px;
     font-weight: 600;
     font-family: 'Lora';
     color: #fff;
     padding: 10px 15px;
     width: 200px;
-   
+   cursor: pointer;
 }
+
+.hero-text a:hover{
+    background-color: #ffffff18;
+}
+
+

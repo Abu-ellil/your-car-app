@@ -1,35 +1,48 @@
-.nav{
-    display: flex;
-    justify-content: space-between;
-    font-size: 28px;
-    color: #fff;
-    padding:20px 70px ;
+.nav {
+    background: linear-gradient(90deg, rgba(0, 9, 26, 0.45) 32.41%, rgba(0, 0, 0, 0) 65.08%), url(../img/Background.png);
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  color: #fff;
+  padding: 20px 70px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 90.3%;
 }
-.logo span{
-    font-weight: 700;
-    font-family: 'Lora';
+.logo span {
+  font-weight: 700;
+  font-family: "Lora";
 }
-.links{
-    display: flex;
-    gap: 40px;
-    list-style: none;
-    text-align: center;
+.links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  text-align: center;
 }
-.links li a{
-    text-decoration: none;
-    color: #fff;
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 33px;
+.links li a {
+  text-decoration: none;
+  color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
 }
-.links-cart{
-    display: flex;
-    gap: 20px;
+.links-cart {
+  display: flex;
+  gap: 20px;
 }
-.active{
-    background-color: #741906;
-    padding:4px 8px;
-    border-radius: 9px;
-    
+.active {
+  background-color: #741906;
+  padding: 4px 8px;
+  border-radius: 9px;
+}
+
+
+.cart{
+    font-size: 32px;
+    cursor: pointer;
+}
+.cart:hover{
+   color: #741906;
 }

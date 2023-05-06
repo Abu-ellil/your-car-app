@@ -1,50 +1,94 @@
-.footer{
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 80%;
+}
+.footer-body {
+  display: flex;
+  align-items: baseline;
+  padding: 40px;
+  gap: 5rem;
+}
+.footer-body h2 {
+  color: #741906;
+}
+
+.foo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  font-size: 1.4rem;
+}
+
+/* News */
+.news {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+.social {
+  font-size: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+.social a {
+  color: #12273d;
+}
+.social a:hover {
+  color: #741906;
+}
+.subscribe {
+  display: flex;
+  gap: 1rem;
+}
+form{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
+    gap: 20px;
 }
-.footer-body{
-    display: flex;
-    padding: 40px;
-    gap: 5rem;
+.subscribe input {
+  height: 2rem;
+  padding-left: 1rem;
+  border: #741906 solid 1px;
 }
-.footer-body h2{
-    color: #741906;
+.sub {
+  background-color: #741906;
+  padding: 10px 25px;
+  border: none;
+  color: #fff;
 }
-
-.foo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
+.sub:hover {
+  background-color: #ed2e08;
+  cursor: pointer;
 }
 
+/* Contact */
 
-/* Subscribe */
-
-
-
-.subscribe{
-    display: flex;gap: 1rem;
+.contact {
+  display: flex;
+  flex-direction: column;
 }
-.subscribe input{
-    height: 2rem;
-    padding-left: 1rem;
-    border: #741906 solid 1px;
+.contact p {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: start;
 }
-.sub{
-    background-color: #741906;
-    padding: 10px 25px;
-    border: none;
-    color: #fff;
+.contact p a {
+  color: #12273d;
+  text-decoration: none;
 }
 
 /* Copy Rights */
 
-.rights{
-    border-top: 2px solid #741906;
-    width: 70%;
+.rights {
+  border-top: 2px solid #741906;
+  width: 80%;
+}
+.rights a{
+    text-decoration: none;
+    color: #12273d;
 }
