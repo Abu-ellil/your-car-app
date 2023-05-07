@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from '../css/Logos.css'
+import classes from '../Logos/Logos.css'
 import logosImg from '../img/Union.png'
 
 const Logos = () => {

@@ -70,10 +70,11 @@ form{
 .contact {
   display: flex;
   flex-direction: column;
+  gap: 25px;
 }
 .contact p {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   align-items: center;
   justify-content: start;
 }
@@ -87,6 +88,7 @@ form{
 .rights {
   border-top: 2px solid #741906;
   width: 80%;
+  padding: 20px;
 }
 .rights a{
     text-decoration: none;

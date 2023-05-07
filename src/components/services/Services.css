@@ -23,7 +23,7 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 .services h2{
     font-size: 3rem;
     position: absolute;
-    top: 25px;
+    top: 70px;
     left: 44%;
     color: #12273D;
     padding: 10px;

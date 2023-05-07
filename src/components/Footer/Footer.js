@@ -10,7 +10,7 @@ import {
   faLocationDot,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import classes from "../css/Footer.css";
+import classes from "../Footer/Footer.css";
 
 const Footer = () => {
 

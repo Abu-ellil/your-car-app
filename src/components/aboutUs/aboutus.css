@@ -12,12 +12,12 @@
 }
 .about-titles{
     position: relative;
-    padding:0 40px;
+    padding:40px 40px;
 }
 .about-titles h2{
     font-size: 3rem;
     position: absolute;
-    bottom: 20px;
+    top:110px;
     color: #741906;
     padding: 10px;
 }

@@ -1,0 +1,123 @@
+.cards-main {
+  min-height: 100vh;
+ width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cards-title {
+  position: relative;
+  padding-bottom: 6rem;
+}
+.cards-title h2 {
+  font-size: 3rem;
+  position: absolute;
+  top: 70px;
+  left: 35%;
+  color: #12273d;
+  padding: 10px;
+}
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  width: 80%;
+  overflow: hidden;
+  padding: 30px;
+}
+.cards {
+  
+  display: flex;
+  gap: 25px;
+}
+.card {
+  width: 355px;
+  height: 550px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: #12273d29 0 0px 13px;
+}
+.car-img{
+    /* height: 160px; */
+    background-size: cover;
+}
+.car-name h3 {
+  color: #741906;
+  font-size: 20px;
+}
+.description{
+    font-size: 12px;
+}
+.add-cart-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  font-size: 18px;
+}
+.info p span {
+  color: #741906;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btns span {
+  font-size: 20px;
+}
+.add-btn {
+    font-size: 20px;
+  background-color: #741906;
+  padding: 8px 15px;
+  border: none;
+  color: #fff;
+}
+.pls {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.mns {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.controls {
+ 
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+ position: relative;
+}
+.left { 
+    position: absolute;
+    background-color: #741906;
+    color: #fff;
+    border: none;
+font-size: 18px;
+  padding: 15px;
+  border-radius: 50%;
+  bottom: 250px;
+}
+.right {
+    right: 0px;
+    position: absolute;
+      background-color: #741906;
+    color: #fff;
+    border: none;
+font-size: 18px;
+  padding: 15px;
+  border-radius: 50%;
+  bottom: 250px;
+}

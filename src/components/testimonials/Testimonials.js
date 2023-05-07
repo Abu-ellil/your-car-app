@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import testCar from "../img/testmon-car.png";
-import classes from "../css/testimonials.css";
+import classes from "../testimonials/testimonials.css";
 
 const Testimonials = () => {
   const [testimonialsData, setTestimonialsData] = useState([]);
@@ -22,7 +22,6 @@ const Testimonials = () => {
 
   const fetchTestimonials = async () => {
     try {
-      // Simulating API call delay with setTimeout
       setTimeout(() => {
         const data = {
           testimonials: [
@@ -55,9 +54,11 @@ const Testimonials = () => {
     }
   };
 
- const showNextTestimonial = () => {
+const showNextTestimonial = () => {
   if (testimonialsData.length > 0) {
-    setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
+    setCurrentTestimonialIndex(
+      (prevIndex) => (prevIndex + 1) % testimonialsData.length
+    );
   }
 };
 

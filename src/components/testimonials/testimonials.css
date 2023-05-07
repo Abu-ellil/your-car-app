@@ -1,0 +1,46 @@
+.testimonials {
+  height: 100vh;
+  background-color: #12273d;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonials h2 {
+    font-size: 3rem;
+    position: absolute;
+    top: 80px;
+    left: 40%;
+    color: #fff;
+}
+.testimonials-cards {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.testimonials-card {
+  height: 380px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  background-color: #ebd8b8;
+  width: 55%;
+}
+.testimonials-card .text {
+  width: 70%;
+  font-size: 1.6rem;
+}
+.name {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.testmonial-car {
+  position: absolute;
+  right: 10rem;
+  top: 25rem;
+}
