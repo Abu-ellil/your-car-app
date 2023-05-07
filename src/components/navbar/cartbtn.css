@@ -1,0 +1,27 @@
+.CartButton {
+  position: relative;
+}
+
+.CartButton button {
+  background-color: #e0e0e000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.CartDropdown {
+    background: linear-gradient(90deg, rgba(0, 9, 26, 0.89) 32.41%, #101927c9);
+    position: absolute;
+    top: 141%;
+    right: -70px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    height: 95vh;
+    display: none;
+}
+
+.CartDropdown.visible {
+  display: block;
+}

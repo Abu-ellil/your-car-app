@@ -1,15 +1,24 @@
 .nav {
-    background: linear-gradient(90deg, rgba(0, 9, 26, 0.45) 32.41%, rgba(0, 0, 0, 0) 65.08%), url(../img/Background.png);
+  top: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(0, 9, 26, 0.45) 32.41%,
+      rgba(0, 0, 0, 0) 65.08%
+    ),
+    url(../img/Background.png);
   display: flex;
   justify-content: space-between;
   font-size: 28px;
   color: #fff;
   padding: 20px 70px;
-  position: sticky;
-  top: 0;
   z-index: 100;
-  width: 100%;
-  box-shadow: 0px 2px 12px #333;
+  width: 86.03%;
+  box-shadow: 0px 2px 12px #333; 
+  position: fixed;
+}
+.nav.fixed{
+  background-color: #ff2b01;
+  transition: .3s ease-in-out;
 }
 .logo span {
   font-weight: 700;
@@ -39,11 +48,29 @@
   border-radius: 9px;
 }
 
-
-.cart{
-    font-size: 32px;
-    cursor: pointer;
+.cart {
+  display: flex;
+  font-size: 32px;
+  cursor: pointer;
+  position: relative;
 }
-.cart:hover{
-   color: #741906;
+.cart svg {
+  color: #fff;
+}
+.cart:hover,
+.cart svg:hover {
+  color: #741906;
+}
+.prod {
+  height: 20px;
+  width: 20px;
+  background-color: #ff2b01;
+  border-radius: 50%;
+  font-size: 19px;
+  position: absolute;
+  left: 26px;
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

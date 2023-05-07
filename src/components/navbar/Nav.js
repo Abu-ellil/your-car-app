@@ -1,6 +1,8 @@
-import React from 'react'
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import CartButton from "./CartIco";
+import Footer from "../Footer/Footer";
 
 const Nav = () => {
   return (
@@ -16,24 +18,24 @@ const Nav = () => {
             </a>
           </li>
           <li>
-            <a href="">About</a>
+            <a href="#about">About</a>
           </li>
           <li>
-            <a href="">Services</a>
+            <a href="#services">Services</a>
           </li>
           <li>
             <a href="">Cars</a>
           </li>
           <li>
-            <a href="">Contact us</a>
+            <a href="#footer">Contact us</a>
           </li>
         </div>
         <div className="cart">
-          <FontAwesomeIcon icon={faCartShopping} />
+          <CartButton />
         </div>
       </div>
     </nav>
   );
-}
+};
 
-export default Nav
+export default Nav;
