@@ -8,38 +8,38 @@ import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import crr from "../img/cars/car.png";
+
 
 const Crds = () => {
 
-    const cartData = []
+    const [list, setList] = useState([])
 
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
 
-  const handleLeftClick = () => {
-    setOffset(Math.max(offset - 350, 0));
-  };
 
-  const handleRightClick = () => {
-    setOffset(Math.min(offset + 350, 1150));
-  };
-
-  const handleAddClick = (index, increment) => {
+  const handleAddClick = (index, increment,car) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
 
-
-
-      cartData.push(...cartData ,index.car)
-        console.log(cartData);
-
-
+      setList([...list, car])
+      
+        console.log(list);
       return updatedCounts;
     });
   };
 
+
+
+
+ const handleLeftClick = () => {
+   setOffset(Math.max(offset - 350, 0));
+ };
+
+ const handleRightClick = () => {
+   setOffset(Math.min(offset + 350, 1150));
+ };
   return (
     <div className="cards-main">
       <div className="cards-title">
@@ -77,14 +77,14 @@ const Crds = () => {
                   <div className="btns">
                     <button
                       className="add-btn pls"
-                      onClick={() => handleAddClick(index, -1)}
+                      onClick={() => handleAddClick(index, -1,car)}
                     >
                       -
                     </button>
                     <span>{cartCounts[index]}</span>
                     <button
                       className="add-btn mns"
-                      onClick={() => handleAddClick(index, 1)}
+                      onClick={() => handleAddClick(index, 1,car)}
                     >
                       +
                     </button>

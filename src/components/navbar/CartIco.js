@@ -15,7 +15,7 @@ const CartButton = () => {
       <button onClick={handleCartToggle}>
         <div className="cart">
             <FontAwesomeIcon icon={faCartShopping} />
-          <div className="prod">5</div>
+          <div className="prod">{list.length}</div>
         </div>
       </button>
       <div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
