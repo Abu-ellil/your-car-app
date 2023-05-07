@@ -11,6 +11,9 @@ import {
 import crr from "../img/cars/car.png";
 
 const Crds = () => {
+
+    const cartData = []
+
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
 
@@ -26,6 +29,13 @@ const Crds = () => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
+
+
+
+      cartData.push(...cartData ,index.car)
+        console.log(cartData);
+
+
       return updatedCounts;
     });
   };
@@ -67,16 +77,16 @@ const Crds = () => {
                   <div className="btns">
                     <button
                       className="add-btn pls"
-                      onClick={() => handleAddClick(index, 1)}
+                      onClick={() => handleAddClick(index, -1)}
                     >
-                      +
+                      -
                     </button>
                     <span>{cartCounts[index]}</span>
                     <button
                       className="add-btn mns"
-                      onClick={() => handleAddClick(index, -1)}
+                      onClick={() => handleAddClick(index, 1)}
                     >
-                      -
+                      +
                     </button>
                   </div>
                 </div>
