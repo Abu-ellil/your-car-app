@@ -1,11 +1,14 @@
 
   .CartButton {
+    
     position: fixed;
     top: 17px;
     z-index: 111;
     right: 120px;
 }
-
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
+  background-color: #06117400;
+}
 
 .CartButton button:nth-child() {
   
@@ -32,9 +35,7 @@
     overflow: scroll;
     scrollbar-width: 0px;
 }
-.cart{
- background-color: #74180600;
-}
+
 .CartDropdown.visible {
   display: block;
 }

@@ -1,6 +1,7 @@
-import React, { useContext, useState, createContext } from "react";
+import React, {  useState, useEffect } from "react";
 import carsData from "../API/CarsData";
-import classes from "../Cards/Cards.css";
+import classes from "./Shop.css";
+import cartcss from "./cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
@@ -8,126 +9,88 @@ import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import CartButton from "../navbar/CartIco";
-
-
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 
 
 
+
+
 const Crds = () => {
-
-
-    const [list, setList] = useState([])
+  const [neolist, setNeolist] = useState([]);
+  const [list, setList] = useState([]);
 
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
 
-///////add
-  const handleAddClick = (index, increment,car) => {
+  ///////add
+  const handleAddClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
 
-      setList([...list, car])
-      
-        console.log(list);
+      setList([...list, car]);
+
+      console.log(list);
       return updatedCounts;
     });
   };
-///////remove
+  ///////remove
+  const handleRemoveClick = (index, increment, car) => {
+    setCartCounts((prevCounts) => {
+      const updatedCounts = [...prevCounts];
+      updatedCounts[index] += increment;
 
- const handleRemoveClick = (index, increment, car) => {
+      // setList([...list, car]);
+      updatedCounts.splice(index, 1);
+      console.log(list);
+      return updatedCounts;
+    });
+  };
+  // const handleRemoveClick = (index, increment, car) => {
+  //   if (list.length > 0) {
+  //     setList((prevCounts) => {
+  //       const updatedCounts = [...prevCounts];
+  //       updatedCounts[index] += increment;
 
-  if(list.length>0){
-   setList((prevCounts) => {
-     const updatedCounts = [...prevCounts];
-     updatedCounts[index] += increment;
+  //       updatedCounts.splice(index, 1);
 
-     updatedCounts.splice(index, 1);
+  //       return updatedCounts;
+  //     });
+  //   }
+  // };
 
-     console.log(list);
-     return updatedCounts;
-   });}
-   
- };
+  ///////del all
 
-///////del all
+  const delAll = () => {
+    setList([]);
+  };
 
-const delAll =()=>{
-  setList([])
-}
+  const handleLeftClick = () => {
+    setOffset(Math.max(offset - 350, 0));
+  };
 
-
- const handleLeftClick = () => {
-   setOffset(Math.max(offset - 350, 0));
- };
-
- const handleRightClick = () => {
-   setOffset(Math.min(offset + 350, 1150));
- };
-// ..........................
-// ..........................
+  const handleRightClick = () => {
+    setOffset(Math.min(offset + 350, 1150));
+  };
+  // ..........................
+  // ..........................
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
     console.log(list.list);
   };
-// ..........................
-// ..........................
+  // ..........................
+  // ..........................
+
+  useEffect(() => {
+    const updatedNeolist = [...new Set(list)];
+    setNeolist(updatedNeolist);
+  }, [list]);
 
   return (
     <>
-      {/* ..................... */}
-      <div className="CartButton">
-        <button onClick={handleCartToggle}>
-          <div className="cart">
-            <FontAwesomeIcon icon={faCartShopping} />
-            <div className="prod">{list.length}</div>
-          </div>
-        </button>
-        <div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
-          
-          {list.map((car,indx,itm)=>{
-            return (
-              <>
-                <div className="card-itm">
-                  <div className="inf">
-                    <h3>{car.class}</h3>
-                    <p>{car.name}</p>
-                    <div className="btns">
-                      <button
-                        className="add-btn pls"
-                        onClick={() => handleRemoveClick(indx, -1, car)}
-                      >
-                        -
-                      </button>
-                      <span>{cartCounts[indx]}</span>
-                      <button
-                        className="add-btn mns"
-                        onClick={() => handleAddClick(indx, 1, car)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <img src={car.image} alt="" />
-                </div>
-              </>
-            );
-          })}
-
-
-
-
-         <button className="del-btn" onClick={delAll}>Delete All</button>
-        </div>
-        
-      </div>
-
-      {/* ..................... */}
       <div className="cards-main">
         <div className="cards-title">
           <div className="title">Cars</div>
@@ -165,7 +128,6 @@ const delAll =()=>{
                       <button
                         className="add-btn pls"
                         onClick={() => handleRemoveClick(index, -1, car)}
-                        // onClick={() => handleRemoveClick(index, -1, car)}
                       >
                         -
                       </button>
@@ -193,8 +155,59 @@ const delAll =()=>{
           </button>
         </div>
       </div>
+
+      {/* ..................... */}
+      {/* ..................... */}
+      {/* ..................... */}
+
+      <div className="CartButton">
+        <button onClick={handleCartToggle}>
+          <div className="cart">
+            <FontAwesomeIcon icon={faCartShopping} />
+            <div className="prod">{list.length}</div>
+          </div>
+        </button>
+        <div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
+          {neolist.map((car, index, itm) => {
+            return (
+              <>
+                <div className="card-itm">
+                  <div className="inf">
+                    <h3>{car.class}</h3>
+                    <p>{car.name}</p>
+
+                <div className="btns">
+                  <button
+                    className="add-btn pls"
+                    onClick={() => handleRemoveClick(index, -1, car)}
+                  >
+                    -
+                  </button>
+                  <span>{cartCounts[index]}</span>
+                  <button
+                    className="add-btn mns"
+                    onClick={() => handleAddClick(index, 1, car)}
+                  >
+                    +
+                  </button>
+                </div>
+                  </div>
+                  
+                  <img src={car.image} alt="" />
+                </div>
+              </>
+            );
+          })}
+
+          <button className="del-btn" onClick={delAll}>
+            Delete All
+          </button>
+        </div>
+      </div>
+
+      {/* ..................... */}
     </>
   );
 };
 
-export default Crds
+export default Crds;
