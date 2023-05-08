@@ -1,27 +1,61 @@
-.CartButton {
-  position: relative;
+
+  .CartButton {
+    position: fixed;
+    top: 17px;
+    z-index: 111;
+    right: 120px;
 }
 
-.CartButton button {
-  background-color: #e0e0e000;
+
+.CartButton button:nth-child() {
+  
+  background-color: #741906;
   border: none;
-  padding: 10px 20px;
+  padding: 7px 15px;
   font-size: 16px;
   cursor: pointer;
 }
 
 .CartDropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
     background: linear-gradient(90deg, rgba(0, 9, 26, 0.89) 32.41%, #101927c9);
-    position: absolute;
-    top: 141%;
-    right: -70px;
+    position: fixed;
+    top: 10%;
+    right: 120px;
     border: 1px solid #ccc;
     padding: 10px;
-    width: 300px;
-    height: 95vh;
+    width: 350px;
+    min-height: 85vh;
     display: none;
+    overflow: scroll;
+    scrollbar-width: 0px;
 }
-
+.cart{
+ background-color: #74180600;
+}
 .CartDropdown.visible {
   display: block;
+}
+
+.card-itm{
+  display: flex;
+  padding: 20px;
+  background-color: #ccc;
+  height: 150px;
+  width: 270px;
+  margin-bottom: 15px;
+}
+.card-itm img{
+  
+  width: 50%;
+}
+
+
+.del-btn{
+  color: #ffffff;
+  padding: 10px 20px;
+  background-color: #741906;
+  border: none;
 }

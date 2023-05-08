@@ -31,7 +31,7 @@ const Nav = () => {
           </li>
         </div>
         <div className="cart">
-          <CartButton />
+          
         </div>
       </div>
     </nav>
