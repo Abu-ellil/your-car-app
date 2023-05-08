@@ -1,4 +1,4 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import carsData from "../API/CarsData";
 import classes from "./Shop.css";
 import cartcss from "./cart.css";
@@ -11,15 +11,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-
-
-
-
-
-const Crds = () => {
+const Shop = () => {
   const [neolist, setNeolist] = useState([]);
   const [list, setList] = useState([]);
-
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
 
@@ -28,37 +22,38 @@ const Crds = () => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
-
       setList([...list, car]);
-
-      console.log(list);
       return updatedCounts;
     });
   };
   ///////remove
+  // const handleRemoveClick = (index, increment, car) => {
+  //   setCartCounts((prevCounts) => {
+  //     const updatedCounts = [...prevCounts];
+  //     updatedCounts[index] += increment;
+  //     updatedCounts.splice(index, 1);
+  //     console.log(list);
+  //     return updatedCounts;
+  //   });
+  // };
   const handleRemoveClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
 
-      // setList([...list, car]);
-      updatedCounts.splice(index, 1);
-      console.log(list);
+      if (updatedCounts[index] <= 0) {
+        setList((prevList) => {
+          const updatedList = [...prevList];
+          updatedList.splice(index, 1);
+          return updatedList;
+        });
+      } else {
+        setList([...list, car]);
+      }
+
       return updatedCounts;
     });
   };
-  // const handleRemoveClick = (index, increment, car) => {
-  //   if (list.length > 0) {
-  //     setList((prevCounts) => {
-  //       const updatedCounts = [...prevCounts];
-  //       updatedCounts[index] += increment;
-
-  //       updatedCounts.splice(index, 1);
-
-  //       return updatedCounts;
-  //     });
-  //   }
-  // };
 
   ///////del all
 
@@ -127,7 +122,7 @@ const Crds = () => {
                     <div className="btns">
                       <button
                         className="add-btn pls"
-                        onClick={() => handleRemoveClick(index, -1, car)}
+                        onClick={() => handleRemoveClick(index, 1, car)}
                       >
                         -
                       </button>
@@ -176,23 +171,23 @@ const Crds = () => {
                     <h3>{car.class}</h3>
                     <p>{car.name}</p>
 
-                <div className="btns">
-                  <button
-                    className="add-btn pls"
-                    onClick={() => handleRemoveClick(index, -1, car)}
-                  >
-                    -
-                  </button>
-                  <span>{cartCounts[index]}</span>
-                  <button
-                    className="add-btn mns"
-                    onClick={() => handleAddClick(index, 1, car)}
-                  >
-                    +
-                  </button>
-                </div>
+                    <div className="btns">
+                      <button
+                        className="add-btn pls"
+                        onClick={() => handleRemoveClick(index, -1, car)}
+                      >
+                        -
+                      </button>
+                      <span>{cartCounts[index]}</span>
+                      <button
+                        className="add-btn mns"
+                        onClick={() => handleAddClick(index, 1, car)}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
-                  
+
                   <img src={car.image} alt="" />
                 </div>
               </>
@@ -210,4 +205,4 @@ const Crds = () => {
   );
 };
 
-export default Crds;
+export default Shop;
