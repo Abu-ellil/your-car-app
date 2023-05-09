@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import carsData from "../API/CarsData";
 import classes from "./Shop.css";
 import cartcss from "./cart.css";
@@ -17,44 +17,34 @@ const Shop = () => {
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
 
-  ///////add
   const handleAddClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
-      setList([...list, car]);
+      if (updatedCounts[index] === 1) {
+        setList((prevList) => [...prevList, car]);
+      }
       return updatedCounts;
     });
   };
-  ///////remove
-  // const handleRemoveClick = (index, increment, car) => {
-  //   setCartCounts((prevCounts) => {
-  //     const updatedCounts = [...prevCounts];
-  //     updatedCounts[index] += increment;
-  //     updatedCounts.splice(index, 1);
-  //     console.log(list);
-  //     return updatedCounts;
-  //   });
-  // };
-  const handleRemoveClick = (index, increment, car) => {
+
+  const handleRemoveClick = (index) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
-      updatedCounts[index] += increment;
-
-      if (updatedCounts[index] <= 0) {
-        setList((prevList) => {
-          const updatedList = [...prevList];
-          updatedList.splice(index, 1);
-          return updatedList;
-        });
-      } else {
-        setList([...list, car]);
+      if (updatedCounts[index] > 0) {
+        updatedCounts[index]--;
+        if (updatedCounts[index] === 0) {
+          setList((prevList) => {
+            const updatedList = [...prevList];
+            updatedList.splice(index, 1);
+            return updatedList;
+          });
+        }
       }
-
       return updatedCounts;
     });
   };
-
+  
   ///////del all
 
   const delAll = () => {
@@ -119,15 +109,15 @@ const Shop = () => {
                         </p>
                       </div>
                     </div>
+
                     <div className="btns">
                       <button
                         className="add-btn pls"
-                        onClick={() => handleRemoveClick(index, 1, car)}
+                        onClick={() => handleRemoveClick(index, -1, car)}
                       >
                         -
                       </button>
                       <span>{cartCounts[index]}</span>
-
                       <button
                         className="add-btn mns"
                         onClick={() => handleAddClick(index, 1, car)}
