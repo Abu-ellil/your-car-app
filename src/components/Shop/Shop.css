@@ -73,13 +73,13 @@
   align-items: center;
 }
 .btns span {
-  font-size: 20px;
+  font-size: 24px;
 }
 .add-btn {
   cursor: pointer;
   font-size: 20px;
   background-color: #741906;
-  padding: 8px 15px;
+  padding: 2px 15px;
   border: none;
   color: #fff;
 }

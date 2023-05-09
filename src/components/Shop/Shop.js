@@ -12,12 +12,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
+const dataFromLocalStorage = JSON.parse(localStorage.getItem('list')|| '[]')
+
+
+
 const Shop = () => {
-  const [neolist, setNeolist] = useState([]);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(dataFromLocalStorage);
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
-  const [syncedCount, setSyncedCount] = useState(0);
+  const [neolist, setNeolist] = useState(list);
+ useEffect(() => {
+   setNeolist(list);
+ }, [list]);
+
+useEffect(()=>{
+  localStorage.setItem('list', JSON.stringify(neolist))
+},[neolist])
+
 
   const handleAddClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
@@ -46,6 +57,9 @@ const Shop = () => {
       return updatedCounts;
     });
   };
+
+ 
+
 
   const handleDeleteClick = (index) => {
     setCartCounts((prevCounts) => {
@@ -76,7 +90,6 @@ const Shop = () => {
 
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
-    console.log(list.list);
   };
 
   useEffect(() => {
@@ -150,7 +163,7 @@ const Shop = () => {
         </div>
       </div>
       <div className="CartButton">
-        <button onClick={handleCartToggle}>
+        <button className="cart-ico-main" onClick={handleCartToggle}>
           <div className="cart">
             <FontAwesomeIcon icon={faCartShopping} />
             <div className="prod">{neolist.length}</div>

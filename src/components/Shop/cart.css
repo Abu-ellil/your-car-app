@@ -10,15 +10,17 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
   background-color: #06117400;
 }
 
-.CartButton button:nth-child() {
+.CartButton button:nth-child(1) {
   
-  background-color: #741906;
   border: none;
   padding: 7px 15px;
   font-size: 16px;
   cursor: pointer;
 }
-
+.cart-ico-main{
+  border: none;
+  background-color: #1c05e900;
+}
 .CartDropdown {
   display: flex;
   flex-direction: column;
@@ -39,18 +41,27 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
 .CartDropdown.visible {
   display: block;
 }
-
+.inf{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .card-itm{
   display: flex;
-  padding: 20px;
+  padding: 8px;
+  gap: 8px;
   background-color: #ccc;
   height: 150px;
-  width: 270px;
+  width: 310px;
   margin-bottom: 15px;
 }
+.inf h3{
+  color: #741906;
+}
 .card-itm img{
-  
   width: 50%;
+  height: 90%;
 }
 
 
@@ -59,4 +70,9 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
   padding: 10px 20px;
   background-color: #741906;
   border: none;
+}
+.delete-btn{
+  background: none;
+  border: none;
+  font-size: 22px;
 }
