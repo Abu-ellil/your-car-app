@@ -1,4 +1,4 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import carsData from "../API/CarsData";
 import classes from "./Shop.css";
 import cartcss from "./cart.css";
@@ -8,6 +8,7 @@ import {
   faSuitcase,
   faChevronRight,
   faChevronLeft,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,6 +17,7 @@ const Shop = () => {
   const [list, setList] = useState([]);
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
+  const [syncedCount, setSyncedCount] = useState(0);
 
   const handleAddClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
@@ -44,8 +46,19 @@ const Shop = () => {
       return updatedCounts;
     });
   };
-  
-  ///////del all
+
+  const handleDeleteClick = (index) => {
+    setCartCounts((prevCounts) => {
+      const updatedCounts = [...prevCounts];
+      updatedCounts[index] = 0;
+      return updatedCounts;
+    });
+    setList((prevList) => {
+      const updatedList = [...prevList];
+      updatedList.splice(index, 1);
+      return updatedList;
+    });
+  };
 
   const delAll = () => {
     setList([]);
@@ -58,16 +71,13 @@ const Shop = () => {
   const handleRightClick = () => {
     setOffset(Math.min(offset + 350, 1150));
   };
-  // ..........................
-  // ..........................
+
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
     console.log(list.list);
   };
-  // ..........................
-  // ..........................
 
   useEffect(() => {
     const updatedNeolist = [...new Set(list)];
@@ -109,11 +119,10 @@ const Shop = () => {
                         </p>
                       </div>
                     </div>
-
                     <div className="btns">
                       <button
                         className="add-btn pls"
-                        onClick={() => handleRemoveClick(index, -1, car)}
+                        onClick={() => handleRemoveClick(index)}
                       >
                         -
                       </button>
@@ -140,57 +149,51 @@ const Shop = () => {
           </button>
         </div>
       </div>
-
-      {/* ..................... */}
-      {/* ..................... */}
-      {/* ..................... */}
-
       <div className="CartButton">
         <button onClick={handleCartToggle}>
           <div className="cart">
             <FontAwesomeIcon icon={faCartShopping} />
-            <div className="prod">{list.length}</div>
+            <div className="prod">{neolist.length}</div>
           </div>
         </button>
         <div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
           {neolist.map((car, index, itm) => {
             return (
-              <>
-                <div className="card-itm">
-                  <div className="inf">
-                    <h3>{car.class}</h3>
-                    <p>{car.name}</p>
-
-                    <div className="btns">
-                      <button
-                        className="add-btn pls"
-                        onClick={() => handleRemoveClick(index, -1, car)}
-                      >
-                        -
-                      </button>
-                      <span>{cartCounts[index]}</span>
-                      <button
-                        className="add-btn mns"
-                        onClick={() => handleAddClick(index, 1, car)}
-                      >
-                        +
-                      </button>
-                    </div>
+              <div key={index} className="card-itm">
+                <div className="inf">
+                  <h3>{car.class}</h3>
+                  <p>{car.name}</p>
+                  <div className="btns">
+                    <button
+                      className="add-btn pls"
+                      onClick={() => handleRemoveClick(index)}
+                    >
+                      -
+                    </button>
+                    <span>{cartCounts[index]}</span>
+                    <button
+                      className="add-btn mns"
+                      onClick={() => handleAddClick(index, 1, car)}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDeleteClick(index)}
+                    >
+                      <FontAwesomeIcon icon={faTrash} />
+                    </button>
                   </div>
-
-                  <img src={car.image} alt="" />
                 </div>
-              </>
+                <img src={car.image} alt="" />
+              </div>
             );
           })}
-
           <button className="del-btn" onClick={delAll}>
             Delete All
           </button>
         </div>
       </div>
-
-      {/* ..................... */}
     </>
   );
 };
