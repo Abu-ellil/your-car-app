@@ -1,12 +1,30 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-// import CartButton from "./CartIco";
+import React, { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
 
 const Nav = () => {
+
+const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollHeight = window.innerHeight;
+    if (window.pageYOffset >= scrollHeight) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
+
   return (
-    <nav className="nav">
+    <nav className={scrolled ? 'nav navbar scrolled' : 'nav navbar'}>
       <div className="logo">
         <span>Your</span>Car
       </div>
@@ -30,9 +48,7 @@ const Nav = () => {
             <a href="#footer">Contact us</a>
           </li>
         </div>
-        <div className="cart">
-          
-        </div>
+        <div className="cart"></div>
       </div>
     </nav>
   );

@@ -183,7 +183,7 @@ useEffect(()=>{
                     >
                       -
                     </button>
-                    <span>{cartCounts[index]}</span>
+                    <span>{cartCounts[index]+1}</span>
                     <button
                       className="add-btn mns"
                       onClick={() => handleAddClick(index, 1, car)}
