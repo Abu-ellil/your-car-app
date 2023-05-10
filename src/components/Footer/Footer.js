@@ -40,7 +40,7 @@ const [email, setEmail] = useState('');
     
   const emailAddress = "aboellil.me@gmail.com";
   return (
-    <div className="footer">
+    <div id="contact" className="footer">
       <div className="footer-body">
         <div className="footer-text foo">
           <h2>

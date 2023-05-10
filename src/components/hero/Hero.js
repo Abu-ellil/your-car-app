@@ -6,7 +6,7 @@ import hero from '../hero/hero.css'
 
 const Hero = () => {
   return (
-    <div className='hero'>
+    <div id='home' className='hero'>
         
         <Discover/>
     </div>

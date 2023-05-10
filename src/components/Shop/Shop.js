@@ -98,7 +98,7 @@ useEffect(()=>{
   }, [list]);
 
   return (
-    <>
+    <div id="cars">
       <div className="cards-main">
         <div className="cards-title">
           <div className="title">Cars</div>
@@ -207,7 +207,7 @@ useEffect(()=>{
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

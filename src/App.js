@@ -16,9 +16,7 @@ function App() {
       <Hero />
       <AboutUs />
       <Services />
-
       <Shop />
-
       <CarsGallery />
       <Testimonials />
       <Logos />
