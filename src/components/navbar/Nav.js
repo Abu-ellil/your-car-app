@@ -88,7 +88,7 @@ const Nav = () => {
             </Link>
           </li>
         </div>
-        <div className="cart"></div>
+        <div></div>
       </div>
     </nav>
   );
