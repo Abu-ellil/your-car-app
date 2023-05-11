@@ -75,25 +75,28 @@ const Shop = () => {
     setList([]);
   };
 
-  const handleLeftClick = () => {
-    const newOffset = offset - 350;
-    setOffset(Math.max(newOffset, 0));
-  };
 
-  const handleRightClick = () => {
-    const newOffset = offset + 350;
-    setOffset(Math.min(newOffset, (carsData.length - 1) * 350));
-  };
+const handleLeftClick = () => {
+  const newActiveCardIndex =
+    (activeCardIndex - 1 + carsData.length) % carsData.length;
+  setActiveCardIndex(newActiveCardIndex);
+  setOffset((window.innerWidth - 350) / 2 - newActiveCardIndex * 350);
+};
+
+const handleRightClick = () => {
+  const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
+  setActiveCardIndex(newActiveCardIndex);
+  setOffset((window.innerWidth - 350) / 2 - newActiveCardIndex * 350);
+};
 
   const handleCircleClick = (index) => {
     setActiveCardIndex(index);
     setOffset(index * 350);
   };
 
-  const handleCardClick = (index) => {
-    const newOffset = index * 350 - (window.innerWidth - 350) / 2;
-    setOffset(Math.max(0, Math.min(newOffset, 350)));
-  };
+ const handleCardClick = (index) => {
+   setActiveCardIndex(index);
+ };
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -109,28 +112,22 @@ const Shop = () => {
   return (
     <>
       <div id="cars" className="cards-main">
-        <div
-          className="cards-title
-"
-        >
+        <div className="cards-title">
           <div className="title">Cars</div>
           <h2>Cars</h2>
         </div>
-        <div className="cards-wrapper">
-          {/* <Draggable axis="x"> */}
-          <div
-            className="cards"
-            style={{
-              transform: `translateX(-${offset}px)`,
-              display: "flex",
-            }}
-          >
-            {carsData.map((car, index) => {
-              return (
-                <div key={index}>
+        <div className="cards-container">
+          <Draggable axis="x">
+            <div
+              className="cards"
+              style={{ transform: `translateX(-${offset}px)` }}
+            >
+              {carsData.map((car, index) => {
+                return (
                   <div
+                    key={index}
                     className={`card ${
-                      activeCardIndex === index ? "active" : ""
+                      activeCardIndex === index ? "active-card" : ""
                     }`}
                     onClick={() => handleCardClick(index)}
                   >
@@ -171,22 +168,19 @@ const Shop = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-          {/* </Draggable> */}
-          <div className="circles">
-            {carsData.map((_, index) => (
-              <span
-                onClick={() => handleCircleClick(index)}
-                key={index}
-                className={`circleA ${
-                  activeCardIndex === index ? "active" : ""
-                }`}
-              ></span>
-            ))}
-          </div>
+                );
+              })}
+            </div>
+          </Draggable>
+        </div>
+        <div className="circles">
+          {carsData.map((_, index) => (
+            <span
+              key={index}
+              className={`circleA ${activeCardIndex === index ? "active-circle" : ""}`}
+              onClick={() => handleCircleClick(index)}
+            ></span>
+          ))}
         </div>
         <div className="controls">
           <button className="left" onClick={handleLeftClick}>

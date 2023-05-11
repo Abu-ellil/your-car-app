@@ -44,6 +44,11 @@ code {
   border-radius: 6px;
 }
 
+@media (max-width: 1680px) {
+ .nav{
+  gap: 10%;
+ }
+}
 @media (max-width: 1380px) {
   .hero-text h1 {
     font-size: 3rem;
@@ -137,7 +142,7 @@ code {
 
 @media (max-width:800px) {
   .CartDropdown {
-    width: 100%;
+    width: 400px;
     top: 133%;
     right: -179%;
   }
@@ -181,7 +186,7 @@ code {
 
 }
 
-@media (max-width:800px) {
+@media (max-width:500px) {
   form {
     display: flex;
     flex-direction: column;
@@ -229,5 +234,9 @@ code {
     top: 67px;
     color: #741906;
     padding: 10px;
+}
+.CartDropdown {
+    top: 133%;
+    left: -170px;
 }
 }
