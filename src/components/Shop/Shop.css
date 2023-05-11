@@ -1,6 +1,6 @@
 .cards-main {
   min-height: 100vh;
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +37,7 @@
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease;
+      transform: translate(0px, 0px);
 }
 .card {
   width: 355px;
@@ -53,6 +54,9 @@
   border: 1px solid #64010159;
     box-shadow: 0px 0px 2px #ff0000;
 }
+/* .react-draggable-dragged{
+  transform: translate(0px, 0px);
+} */
 .car-img {
   /* height: 160px; */
   background-size: cover;
@@ -107,11 +111,11 @@
 }
 
 .controls {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 100;
-  position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+   
 }
 .left {
   position: absolute;
@@ -121,7 +125,7 @@
   font-size: 18px;
   padding: 15px;
   border-radius: 50%;
-  bottom: 250px;
+  bottom: 500px;
 }
 .right {
   right: 0px;
@@ -132,7 +136,7 @@
   font-size: 18px;
   padding: 15px;
   border-radius: 50%;
-  bottom: 250px;
+  bottom: 500px;
 }
 .circles {
   display: flex;

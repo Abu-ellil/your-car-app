@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="main">
       <Nav />
-      <div className="content">
+      <div className="container">
       <Hero />
       <AboutUs />
       <Services />

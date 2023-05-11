@@ -76,22 +76,22 @@ const Shop = () => {
   };
 
 
-const handleLeftClick = () => {
-  const newActiveCardIndex =
-    (activeCardIndex - 1 + carsData.length) % carsData.length;
-  setActiveCardIndex(newActiveCardIndex);
-  setOffset((window.innerWidth - 350) / 2 - newActiveCardIndex * 350);
-};
+  const handleLeftClick = () => {
+    const newActiveCardIndex =
+      (activeCardIndex - 1 + carsData.length) % carsData.length;
+    setActiveCardIndex(newActiveCardIndex);
+    setOffset((1920 - 350) / 2 - newActiveCardIndex * 350);
+  };
 
-const handleRightClick = () => {
-  const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
-  setActiveCardIndex(newActiveCardIndex);
-  setOffset((window.innerWidth - 350) / 2 - newActiveCardIndex * 350);
-};
+  const handleRightClick = () => {
+    const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
+    setActiveCardIndex(newActiveCardIndex);
+    setOffset((1920 - 350) / 2 - newActiveCardIndex * 350);
+  };
 
   const handleCircleClick = (index) => {
     setActiveCardIndex(index);
-    setOffset(index * 350);
+    setOffset((1920 - 350) / 2 - index * 350);
   };
 
  const handleCardClick = (index) => {
@@ -120,7 +120,7 @@ const handleRightClick = () => {
           <Draggable axis="x">
             <div
               className="cards"
-              style={{ transform: `translateX(-${offset}px)` }}
+              style={{ transform: `translateX(-800px)` }}
             >
               {carsData.map((car, index) => {
                 return (
@@ -129,6 +129,7 @@ const handleRightClick = () => {
                     className={`card ${
                       activeCardIndex === index ? "active-card" : ""
                     }`}
+                    style={{ transform: `translateX(-${offset}px)` }}
                     onClick={() => handleCardClick(index)}
                   >
                     <img className="car-img" src={car.image} alt={car.name} />
@@ -177,7 +178,9 @@ const handleRightClick = () => {
           {carsData.map((_, index) => (
             <span
               key={index}
-              className={`circleA ${activeCardIndex === index ? "active-circle" : ""}`}
+              className={`circleA ${
+                activeCardIndex === index ? "active-circle" : ""
+              }`}
               onClick={() => handleCircleClick(index)}
             ></span>
           ))}
