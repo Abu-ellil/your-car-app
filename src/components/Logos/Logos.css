@@ -1,8 +1,13 @@
-.logos{
-    width: 100%;
-    height: 350px;
-    background-color: #dfdbcd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logos {
+  width: 100%;
+  height: 350px;
+  background-color: #dfdbcd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logos img{
+    filter: brightness(0);
+    opacity: 0.5;
 }

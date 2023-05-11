@@ -4,13 +4,9 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-.root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 90vw;
-
+#root {
+  margin: 0 auto;
+  width: 100%;
 }
 body {
   overflow-x: hidden;
@@ -19,23 +15,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #e5e5e5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .main {
+  margin: auto;
   align-items: center;
   text-align: center;
   position: relative;
-  width: 1440px;
+  width: 80%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: #fafafa;
   overflow: hidden;
 }
-
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -44,4 +42,192 @@ code {
   background: transparent;
   border: #fff 2px solid;
   border-radius: 6px;
+}
+
+@media (max-width: 1380px) {
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 1250px) {
+  .main {
+    width: 100%;
+  }
+  .nav-mini-bar {
+    display: block;
+    cursor: pointer;
+  }
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .links-cart {
+    display: none;
+  }
+
+  .drop-links .visible {
+    display: block;
+  }
+  .hero-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: end;
+    color: #fff;
+    align-items: end;
+    padding: 11rem 13rem;
+    gap: 4rem;
+  }
+  .hero-text {
+    grid-template-columns: 1fr;
+  }
+  .content {
+    gap: 8rem;
+  }
+  .about-content {
+    display: flex;
+    padding: 0px 1rem;
+    text-align: start;
+    font-size: 17px;
+    gap: 32px;
+    color: #555;
+  }
+  .service {
+    display: flex;
+    padding: 4rem 1rem;
+    gap: 2rem;
+  }
+  .cars-gallery {
+    height: 55vh;
+  }
+  .testmonial-car {
+    position: absolute;
+    right: 0rem;
+    top: 31rem;
+  }
+  .testimonials-card {
+    width: 80%;
+  }
+  .testimonials {
+    gap: 4rem;
+  }
+  .foo {
+    font-size: 1rem;
+  }
+  .footer-body {
+    display: flex;
+    align-items: baseline;
+    padding: 19px;
+    gap: 4rem;
+  }
+  .hide {
+    display: block;
+  }
+}
+
+@media (max-width: 950px) {
+  .CartButton {
+    right: 41%;
+  }
+  .CartDropdown {
+    width: 400px;
+    top: 133%;
+    right: -179%;
+  }
+}
+
+@media (max-width:800px) {
+  .CartDropdown {
+    width: 100%;
+    top: 133%;
+    right: -179%;
+  }
+  .hero-text {
+    padding: 0rem 0rem;
+    gap: 8rem;
+  }
+  .about-us img {
+    display: none;
+  }
+  .title {
+    font-size: 5.5rem;
+  }
+  .services h2 {
+    top: 40px;
+    left: 31%;
+}
+.service{
+  display: flex;
+  flex-direction: column;
+  font-size:16%;
+}
+.cards-main {
+      min-height: 143vh;
+}
+.cars-gallery {
+  height: 100vh;
+    background: url(./components/img/cars/carsGallerysmall.png);
+  background-size: cover;
+   
+}
+.footer-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.foo{
+  width: 100%;
+}
+
+}
+
+@media (max-width:800px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.foo p{
+  display: flex;
+  flex-direction: column;
+}
+.cards-title h2 {
+    top: 40px;
+    left: 22%;
+}
+.testimonials .title {
+    font-size: 3.5rem;
+}
+.testimonials h2 {
+    font-size: 2rem;
+    top: 34px;
+    left: 30%;;
+}
+.foo p svg{
+  font-size: 33px;
+}
+
+
+.testimonials-card {
+    width: 100%;
+}
+.testmonial-car {
+    position: absolute;
+    right: 4rem;
+    top: 41rem;
+}
+.testimonials-card {
+    height: 492px;
+    width: 100%;
+}
+.about-titles .title{
+  font-size: 3.5rem;
+}
+.about-titles h2 {
+    font-size: 2rem;
+    position: absolute;
+    top: 67px;
+    color: #741906;
+    padding: 10px;
+}
 }

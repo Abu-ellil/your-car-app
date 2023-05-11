@@ -13,11 +13,9 @@ import {
 import classes from "../Footer/Footer.css";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
 
-const [email, setEmail] = useState('');
-
-
-  
+  const year = new Date().getFullYear();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -25,19 +23,16 @@ const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+
     sendEmail(email);
   };
 
   const sendEmail = (email) => {
     console.log(`Sending email to: ${email}`);
 
-    setEmail('');
+    setEmail("");
   };
 
-
-
-    
   const emailAddress = "aboellil.me@gmail.com";
   return (
     <div id="contact" className="footer">
@@ -107,8 +102,8 @@ const [email, setEmail] = useState('');
       </div>
       <div className="rights">
         <p>
-          © Copyright <span className="Year">2023</span> ·{" "}
-          <a href="#">
+          © Copyright <span className="Year">{year}</span> ·{" "}
+          <a href="https://github.com/Abu-ellil/cars-app">
             <strong>YourCar</strong>{" "}
           </a>
           {"#"}

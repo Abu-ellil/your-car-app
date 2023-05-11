@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="main">
       <Nav />
+      <div className="content">
       <Hero />
       <AboutUs />
       <Services />
@@ -21,6 +22,7 @@ function App() {
       <Testimonials />
       <Logos />
       <Footer />
+    </div>
     </div>
   );
 }

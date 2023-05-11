@@ -13,23 +13,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const dataFromLocalStorage = JSON.parse(localStorage.getItem('list')|| '[]')
-
-
+const dataFromLocalStorage = JSON.parse(localStorage.getItem("list") || "[]");
 
 const Shop = () => {
   const [list, setList] = useState(dataFromLocalStorage);
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
   const [neolist, setNeolist] = useState(list);
- useEffect(() => {
-   setNeolist(list);
- }, [list]);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
 
-useEffect(()=>{
-  localStorage.setItem('list', JSON.stringify(neolist))
-},[neolist])
+  useEffect(() => {
+    setNeolist(list);
+  }, [list]);
 
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(neolist));
+  }, [neolist]);
 
   const handleAddClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
@@ -59,9 +58,6 @@ useEffect(()=>{
     });
   };
 
- 
-
-
   const handleDeleteClick = (index) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
@@ -80,11 +76,23 @@ useEffect(()=>{
   };
 
   const handleLeftClick = () => {
-    setOffset(Math.max(offset - 350, 0));
+    const newOffset = offset - 350;
+    setOffset(Math.max(newOffset, 0));
   };
 
   const handleRightClick = () => {
-    setOffset(Math.min(offset + 350, 1150));
+    const newOffset = offset + 350;
+    setOffset(Math.min(newOffset, (carsData.length - 1) * 350));
+  };
+
+  const handleCircleClick = (index) => {
+    setActiveCardIndex(index);
+    setOffset(index * 350);
+  };
+
+  const handleCardClick = (index) => {
+    const newOffset = index * 350 - (window.innerWidth - 350) / 2;
+    setOffset(Math.max(0, Math.min(newOffset, 350)));
   };
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -98,79 +106,83 @@ useEffect(()=>{
     setNeolist(updatedNeolist);
   }, [list]);
 
-
-  const circlick=(indx)=>{
-    console.log(indx);
-  }
-
   return (
     <>
       <div id="cars" className="cards-main">
-        <div className="cards-title">
+        <div
+          className="cards-title
+"
+        >
           <div className="title">Cars</div>
           <h2>Cars</h2>
         </div>
         <div className="cards-wrapper">
-          {" "}
-          <Draggable axis="x" >
-            <div
-              className="cards"
-              style={{ transform: `translateX(-${offset}px)` }}
-            >
-              {carsData.map((car, index) => {
-                return (
-                  <div>
-                    <div className="card" key={index} onClick={circlick}>
-                      <img className="car-img" src={car.image} alt={car.name} />
-                      <div className="car-name">
-                        <h3>{car.name}</h3>
-                        <p>{car.class}</p>
+          {/* <Draggable axis="x"> */}
+          <div
+            className="cards"
+            style={{
+              transform: `translateX(-${offset}px)`,
+              display: "flex",
+            }}
+          >
+            {carsData.map((car, index) => {
+              return (
+                <div key={index}>
+                  <div
+                    className={`card ${
+                      activeCardIndex === index ? "active" : ""
+                    }`}
+                    onClick={() => handleCardClick(index)}
+                  >
+                    <img className="car-img" src={car.image} alt={car.name} />
+                    <div className="car-name">
+                      <h3>{car.name}</h3>
+                      <p>{car.class}</p>
+                    </div>
+                    <p className="description">{car.description}</p>
+                    <div className="add-cart-btn">
+                      <div className="info">
+                        <div>
+                          <p>
+                            <FontAwesomeIcon icon={faUsers} /> {car.seats} Seats
+                          </p>
+                        </div>
+                        <div>
+                          <p>
+                            <FontAwesomeIcon icon={faSuitcase} /> {car.luggage}{" "}
+                            Luggage
+                          </p>
+                        </div>
                       </div>
-                      <p className="description">{car.description}</p>
-                      <div className="add-cart-btn">
-                        <div className="info">
-                          <div>
-                            <p>
-                              <FontAwesomeIcon icon={faUsers} /> {car.seats}{" "}
-                              Seats
-                            </p>
-                          </div>
-                          <div>
-                            <p>
-                              <FontAwesomeIcon icon={faSuitcase} />{" "}
-                              {car.luggage} Luggage
-                            </p>
-                          </div>
-                        </div>
-                        <div className="btns">
-                          <button
-                            className="add-btn pls"
-                            onClick={() => handleRemoveClick(index)}
-                          >
-                            -
-                          </button>
-                          <span>{cartCounts[index]}</span>
-                          <button
-                            className="add-btn mns"
-                            onClick={() => handleAddClick(index, 1, car)}
-                          >
-                            +
-                          </button>
-                        </div>
+                      <div className="btns">
+                        <button
+                          className="add-btn pls"
+                          onClick={() => handleRemoveClick(index)}
+                        >
+                          -
+                        </button>
+                        <span>{cartCounts[index]}</span>
+                        <button
+                          className="add-btn mns"
+                          onClick={() => handleAddClick(index, 1, car)}
+                        >
+                          +
+                        </button>
                       </div>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </Draggable>
+                </div>
+              );
+            })}
+          </div>
+          {/* </Draggable> */}
           <div className="circles">
             {carsData.map((_, index) => (
               <span
-                onClick={() => circlick(index)}
+                onClick={() => handleCircleClick(index)}
                 key={index}
                 className={`circleA ${
-                  index === offset / 350 ? "active" : "circlen"
+                  activeCardIndex === index ? "active" : ""
                 }`}
               ></span>
             ))}

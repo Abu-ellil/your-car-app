@@ -26,6 +26,8 @@
   padding: 30px;
 }
 .cards {
+  display: flex;
+  /* transition: transform 0.1s ease; */
   width: 100%;
   display: flex;
   gap: 25px;
@@ -39,6 +41,7 @@
   background-color: #fff;
   padding: 30px;
   box-shadow: #12273d29 0 0px 13px;
+  cursor: grab;
 }
 .car-img {
   /* height: 160px; */
@@ -124,7 +127,7 @@
 .circles {
   display: flex;
   gap: 20px;
- 
+  padding: 1rem;
   margin: auto;
 }
 
@@ -137,6 +140,6 @@
   background-color: #741906;
 }
 .circlen {
- background-color: #12273d;
+  background-color: #12273d;
   border-radius: 50%;
 }
