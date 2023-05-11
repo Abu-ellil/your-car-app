@@ -10,15 +10,16 @@ const Testimonials = () => {
     fetchTestimonials();
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      showNextTestimonial();
-    }, 3000);
+ useEffect(() => {
+   const timer = setTimeout(() => {
+     showNextTestimonial();
+   }, 3000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [currentTestimonialIndex]);
+   return () => {
+     clearTimeout(timer);
+   };
+ }, [currentTestimonialIndex, testimonialsData]);
+
 
   const fetchTestimonials = async () => {
     try {
@@ -77,6 +78,7 @@ const showNextTestimonial = () => {
               <h1>{testimonialsData[currentTestimonialIndex].name}</h1>
               <p>{testimonialsData[currentTestimonialIndex].location}</p>
             </div>
+            {/* <div className="circle">{testimonialsData.fill('O')}</div> */}
           </div>
         )}
         <img className="testmonial-car" src={testCar} alt="" />

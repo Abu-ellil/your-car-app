@@ -88,8 +88,9 @@ const Nav = () => {
             </Link>
           </li>
         </div>
-        <div></div>
+        
       </div>
+      <div></div>
     </nav>
   );
 };
