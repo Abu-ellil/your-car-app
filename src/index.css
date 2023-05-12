@@ -21,7 +21,7 @@ body {
   align-items: center;
   text-align: center;
   position: relative;
-  width: 80%;
+  width: 1440px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,9 +45,9 @@ code {
 }
 
 @media (max-width: 1680px) {
- .nav{
-  gap: 10%;
- }
+  .nav {
+    gap: 10%;
+  }
 }
 @media (max-width: 1380px) {
   .hero-text h1 {
@@ -141,7 +141,7 @@ code {
   }
 }
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .CartDropdown {
     width: 400px;
     top: 133%;
@@ -160,85 +160,82 @@ code {
   .services h2 {
     top: 40px;
     left: 31%;
-}
-.service{
-  display: flex;
-  flex-direction: column;
-  font-size:16%;
-}
-.cards-main {
-      min-height: 100vh;
-      margin-top: 580px;
-}
-.cars-gallery {
-  height: 100vh;
+  }
+  .service {
+    display: flex;
+    flex-direction: column;
+    font-size: 16%;
+  }
+  .cards-main {
+    min-height: 100vh;
+    margin-top: 580px;
+  }
+  .cars-gallery {
+    height: 100vh;
     background: url(./components/img/cars/carsGallerysmall.png);
-  background-size: cover;
-   
-}
-.footer-body {
+    background-size: cover;
+  }
+  .footer-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.foo{
-  width: 100%;
+  }
+  .foo {
+    width: 100%;
+  }
 }
 
-}
-
-@media (max-width:500px) {
+@media (max-width: 500px) {
   form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-.foo p{
-  display: flex;
-  flex-direction: column;
-}
-.cards-title h2 {
+  }
+  .foo p {
+    display: flex;
+    flex-direction: column;
+  }
+  .cards-title h2 {
     top: 40px;
     left: 22%;
-}
-.testimonials .title {
+  }
+  .testimonials .title {
     font-size: 3.5rem;
-}
-.testimonials h2 {
+  }
+  .testimonials h2 {
     font-size: 2rem;
     top: 34px;
-    left: 30%;;
-}
-.foo p svg{
-  font-size: 33px;
-}
+    left: 30%;
+  }
+  .foo p svg {
+    font-size: 33px;
+  }
 
-
-.testimonials-card {
+  .testimonials-card {
     width: 100%;
-}
-.testmonial-car {
+  }
+  .testmonial-car {
     position: absolute;
     right: 4rem;
     top: 41rem;
-}
-.testimonials-card {
+  }
+  .testimonials-card {
     height: 492px;
     width: 100%;
-}
-.about-titles .title{
-  font-size: 3.5rem;
-}
-.about-titles h2 {
+  }
+  .about-titles .title {
+    font-size: 3.5rem;
+  }
+  .about-titles h2 {
     font-size: 2rem;
     position: absolute;
     top: 67px;
     color: #741906;
     padding: 10px;
-}
-.CartDropdown {
+  }
+  .CartDropdown {
     top: 133%;
     left: -170px;
-}
+  }
 }

@@ -45,9 +45,9 @@
   display: flex;
   gap: 1rem;
 }
-form{
-    display: flex;
-    gap: 20px;
+form {
+  display: flex;
+  gap: 20px;
 }
 .subscribe input {
   height: 2rem;
@@ -90,7 +90,7 @@ form{
   width: 80%;
   padding: 20px;
 }
-.rights a{
-    text-decoration: none;
-    color: #12273d;
+.rights a {
+  text-decoration: none;
+  color: #12273d;
 }

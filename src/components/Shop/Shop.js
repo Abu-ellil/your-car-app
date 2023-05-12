@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 import carsData from "../API/CarsData";
 import classes from "./Shop.css";
@@ -75,7 +75,6 @@ const Shop = () => {
     setList([]);
   };
 
-
   const handleLeftClick = () => {
     const newActiveCardIndex =
       (activeCardIndex - 1 + carsData.length) % carsData.length;
@@ -94,9 +93,9 @@ const Shop = () => {
     setOffset((1920 - 350) / 2 - index * 350);
   };
 
- const handleCardClick = (index) => {
-   setActiveCardIndex(index);
- };
+  const handleCardClick = (index) => {
+    setActiveCardIndex(index);
+  };
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -109,6 +108,16 @@ const Shop = () => {
     setNeolist(updatedNeolist);
   }, [list]);
 
+  const containerRef = useRef(null);
+
+  const handleTouchStart = (event) => {
+    event.stopPropagation();
+  };
+
+  const handleTouchEnd = (event) => {
+    const buttonId = event.target.id;
+  };
+
   return (
     <>
       <div id="cars" className="cards-main">
@@ -117,10 +126,16 @@ const Shop = () => {
           <h2>Cars</h2>
         </div>
         <div className="cards-container">
-          <Draggable axis="x">
+          <Draggable
+            axis="x"
+            nodeRef={containerRef}
+            onStart={handleTouchStart}
+            onStop={handleTouchEnd}
+          >
             <div
+              ref={containerRef}
               className="cards"
-              style={{ transform: `translateX(-800px)` }}
+              style={{ transform: `translateX(-350px)` }}
             >
               {carsData.map((car, index) => {
                 return (

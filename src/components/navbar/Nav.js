@@ -7,10 +7,10 @@ const Nav = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
 
- const [isDroped, setIsDroped] = useState(false);
-const navToggel = ()=>{
-  setIsDroped(!isDroped)
-}
+  const [isDroped, setIsDroped] = useState(false);
+  const navToggel = () => {
+    setIsDroped(!isDroped);
+  };
 
   const handleLinkClick = (link) => {
     setActiveLink(link);

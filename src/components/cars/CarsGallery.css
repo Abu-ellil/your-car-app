@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: url('../img/Cars.png');
+  background: url("../img/Cars.png");
   background-size: cover;
   background-position: right;
   display: flex;
@@ -23,4 +23,3 @@
   font-size: 22px;
   cursor: pointer;
 }
-

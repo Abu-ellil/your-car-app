@@ -15,7 +15,7 @@
   position: absolute;
   top: 70px;
   left: 35%;
-  color: #12273d;
+  color: #6e0505;
   padding: 10px;
 }
 .cards-wrapper {
@@ -30,14 +30,14 @@
   overflow: hidden;
 }
 .cards {
- display: flex;
+  display: flex;
   width: 100%;
   display: flex;
   gap: 25px;
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease;
-      transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
 }
 .card {
   width: 355px;
@@ -50,9 +50,9 @@
   box-shadow: #12273d29 0 0px 13px;
   cursor: grab;
 }
-.active-card{
+.active-card {
   border: 1px solid #64010159;
-    box-shadow: 0px 0px 2px #ff0000;
+  box-shadow: 0px 0px 2px #ff0000;
 }
 /* .react-draggable-dragged{
   transform: translate(0px, 0px);
@@ -111,11 +111,10 @@
 }
 
 .controls {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-   
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 .left {
   position: absolute;
@@ -154,8 +153,8 @@
   background-color: #5a5a5a3d;
   border-radius: 50%;
 }
-.active-circle{
-background-color: #6e0505;
+.active-circle {
+  background-color: #6e0505;
 }
 .circlen {
   background-color: #12273d;

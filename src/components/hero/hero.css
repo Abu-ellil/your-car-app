@@ -1,47 +1,50 @@
-.hero{
-height: 100vh;
-background: linear-gradient(90deg, rgba(0, 9, 26, 0.45) 32.41%, rgba(0, 0, 0, 0) 65.08%), url(../img/Background.png);
-transform: matrix(1, 0, 0, 1, 0, 0);
-background-size: cover;
+.hero {
+  /* height: 100vh; */
+  background: linear-gradient(
+      90deg,
+      rgba(0, 9, 26, 0.45) 32.41%,
+      rgba(0, 0, 0, 0) 65.08%
+    ),
+    url(../img/Background.png);
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  background-size: cover;
 }
 
-.hero-text{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: end;
-    color: #fff;
-    align-items: end;
-    padding: 10rem 3rem;
-    gap: 7rem;
+.hero-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: end;
+  color: #fff;
+  align-items: end;
+  padding: 14rem 12rem;
+  gap: 7rem;
 }
-.content{
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: 4rem;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 4rem;
 }
-.hero-text h1{
-    font-family: serif;
-    font-size:4rem;
+.hero-text h1 {
+  font-family: serif;
+  font-size: 4rem;
 }
-.hero-text p{
-    font-family: serif;
-    font-size: 2.5rem;
-    width: 70%;
+.hero-text p {
+  font-family: serif;
+  font-size: 2.5rem;
+  width: 70%;
 }
-.hero-text a{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: 600;
-    font-family: 'Lora';
-    color: #fff;
-    padding: 10px 15px;
-    width: 200px;
-   cursor: pointer;
-}
-
-.hero-text a:hover{
-    background-color: #ffffff18;
+.hero-text a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: "Lora";
+  color: #fff;
+  padding: 10px 15px;
+  width: 200px;
+  cursor: pointer;
 }
 
-
+.hero-text a:hover {
+  background-color: #ffffff18;
+}

@@ -8,11 +8,11 @@
 }
 
 .testimonials h2 {
-    font-size: 3rem;
-    position: absolute;
-    top: 80px;
-    left: 40%;
-    color: #fff;
+  font-size: 3rem;
+  position: absolute;
+  top: 80px;
+  left: 40%;
+  color: #fff;
 }
 .testimonials-cards {
   padding-top: 3rem;
@@ -44,6 +44,6 @@
   right: 10rem;
   top: 25rem;
 }
-.circle{
+.circle {
   position: absolute;
 }

@@ -1,14 +1,13 @@
-import classes from '../cars/CarsGallery.css'
+import classes from "../cars/CarsGallery.css";
 
-
-import React from 'react'
+import React from "react";
 
 const CarsGallery = () => {
-const emailAddress = "aboellil.me@gmail.com";
-  const contactUsViaMail = ()=>{
+  const emailAddress = "aboellil.me@gmail.com";
+  const contactUsViaMail = () => {
     window.location.href = `mailto:${emailAddress}`;
-  }
- 
+  };
+
   return (
     <div className="cars-gallery">
       <h1>Tesla Model 3</h1>
@@ -17,9 +16,7 @@ const emailAddress = "aboellil.me@gmail.com";
         Contact
       </button>
     </div>
-
-    
   );
-}
+};
 
-export default CarsGallery
+export default CarsGallery;

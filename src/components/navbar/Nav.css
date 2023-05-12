@@ -3,12 +3,12 @@
   background: transparent;
   background-size: cover;
   display: flex;
-gap: 30%;
+  gap: 27%;
   font-size: 28px;
   color: #fff;
   padding: 20px 70px;
   z-index: 100;
-  width: 80.6%;
+  width: 1440px;
   position: fixed;
 }
 .nav.fixed {
@@ -65,22 +65,23 @@ a:hover {
 .navbar.scrolled .links li a {
   color: #12273d;
 }
-.navbar.scrolled .cart svg{
-  color: #067415;
-}
 
 .links-cart {
   display: flex;
   gap: 20px;
 }
 .active {
-    display: inherit;
-    background-color: #741906;
-    padding: 12px 25px;
-    width: 100%;
+  border-radius: 6px;
+  display: inherit;
+  background-color: #741906;
+  padding: 12px 25px;
+  width: 100%;
 }
 .active .links li a {
   color: #fff;
+}
+.navbar.scrolled  .links li a.active {
+    color: #fcfcfc;
 }
 .cart {
   display: flex;
@@ -89,17 +90,17 @@ a:hover {
   position: relative;
 }
 .cart svg {
-  color: #fff;
+  color: #858585;
 }
 .cart:hover,
 .cart svg:hover {
-  color: #741906;
+  color: #fa431e;
 }
 .prod {
-  height: 20px;
-  width: 20px;
-  background-color: #ff2b01;
-  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: #ca4327;
+  border-radius: 6px;
   font-size: 19px;
   position: absolute;
   left: 26px;
@@ -107,27 +108,28 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 }
 .nav-mini-bar {
-    display: none;
-    cursor: pointer;
-    z-index: 1000;
+  display: none;
+  cursor: pointer;
+  z-index: 1000;
 }
 .dorp-navbar {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    right: 4px;
-    top: 74px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 4px;
+  top: 74px;
 }
 .drop-links {
-    background-color: #000000b5;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    display: none;
-    height: 95vh;
-    width: 384px;
-    color: #fff;
-    padding-top: 14rem;
+  background-color: #000000b5;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  height: 95vh;
+  width: 384px;
+  color: #fff;
+  padding-top: 14rem;
 }

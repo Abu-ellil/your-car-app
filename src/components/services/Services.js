@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import { ReactComponent as Star } from "../img/ico/star.svg";
 import { ReactComponent as Rent } from "../img/ico/11.svg";
 import { ReactComponent as Sell } from "../img/ico/diamond.svg";
-import classes from '../services/Services.css'
+import classes from "../services/Services.css";
 
 const Services = () => {
   return (
@@ -48,6 +48,6 @@ const Services = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Services
+export default Services;

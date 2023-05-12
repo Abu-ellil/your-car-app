@@ -10,16 +10,15 @@ const Testimonials = () => {
     fetchTestimonials();
   }, []);
 
- useEffect(() => {
-   const timer = setTimeout(() => {
-     showNextTestimonial();
-   }, 3000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      showNextTestimonial();
+    }, 3000);
 
-   return () => {
-     clearTimeout(timer);
-   };
- }, [currentTestimonialIndex, testimonialsData]);
-
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [currentTestimonialIndex, testimonialsData]);
 
   const fetchTestimonials = async () => {
     try {
@@ -55,13 +54,13 @@ const Testimonials = () => {
     }
   };
 
-const showNextTestimonial = () => {
-  if (testimonialsData.length > 0) {
-    setCurrentTestimonialIndex(
-      (prevIndex) => (prevIndex + 1) % testimonialsData.length
-    );
-  }
-};
+  const showNextTestimonial = () => {
+    if (testimonialsData.length > 0) {
+      setCurrentTestimonialIndex(
+        (prevIndex) => (prevIndex + 1) % testimonialsData.length
+      );
+    }
+  };
 
   return (
     <div className="testimonials">

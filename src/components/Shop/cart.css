@@ -2,25 +2,24 @@
   position: fixed;
   top: 17px;
   z-index: 111;
-  right: 17%;color: #741906;
+  right: 21%;
+  color: #741906;
 }
-.cart svg{
+.cart svg {
   color: #741806b6;
 }
 svg:not(:root).svg-inline--fa,
 svg:not(:host).svg-inline--fa {
   background-color: #06117400;
- 
 }
 
 .CartButton button:nth-child(1) {
   border: none;
   padding: 7px 15px;
   font-size: 16px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 .cart-ico-main {
- 
   background-color: #1c05e900;
 }
 .CartDropdown {
@@ -29,10 +28,9 @@ svg:not(:host).svg-inline--fa {
   padding: 11px;
   width: 350px;
   min-height: 94vh;
-  top: 133%;
+  top: 173%;
   left: -270%;
   display: none;
-  /* overflow: scroll; */
   border: none;
 }
 .CartDropdown.visible {
@@ -62,13 +60,13 @@ svg:not(:host).svg-inline--fa {
 }
 
 .del-btn {
-    color: #ffffff;
-    padding: 10px 20px;
-    background-color: #741906;
-    border: none;
-    position: absolute;
-    bottom: 4%;
-    left: 39%;
+  color: #ffffff;
+  padding: 10px 20px;
+  background-color: #741906;
+  border: none;
+  position: absolute;
+  bottom: 4%;
+  left: 39%;
 }
 .delete-btn {
   background: none;
