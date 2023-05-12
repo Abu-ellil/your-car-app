@@ -142,10 +142,21 @@ code {
 }
 
 @media (max-width: 800px) {
-  .CartDropdown {
-    width: 400px;
-    top: 133%;
-    right: -179%;
+  .services {
+    height: auto;
+    background: #8d8b8b6c;
+  }
+  .about-titles h2 {
+    top: 77px;
+  }
+  .cards-title h2 {
+    top: 41px;
+    left: 16%;
+  }
+ .CartDropdown {
+    width: 538px;
+    top: 136%;
+    left: -381%;
   }
   .hero-text {
     padding: 0rem 0rem;
@@ -157,6 +168,24 @@ code {
   .title {
     font-size: 5.5rem;
   }
+   .testimonials .title{
+    font-size: 4rem;
+   }
+  .testimonials h2 {
+    top: 38px;
+    left: 24%;
+}
+.testimonials-card {
+    width: 102%;
+}
+.testimonials-card {
+    height: 502px;
+  }
+  .testmonial-car {
+    position: absolute;
+    right: 0rem;
+    top: 38rem;
+}
   .services h2 {
     top: 40px;
     left: 31%;
@@ -168,9 +197,10 @@ code {
   }
   .cards-main {
     min-height: 100vh;
-    margin-top: 580px;
+    margin-top: 50px;
   }
   .cars-gallery {
+    width: 73%;
     height: 100vh;
     background: url(./components/img/cars/carsGallerysmall.png);
     background-size: cover;
