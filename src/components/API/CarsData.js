@@ -7,6 +7,7 @@ const carsData = [
     seats: 2,
     luggage: 2,
     image: require("./images/Porsche-911-Transparent-PNG.png"),
+    amount:0,
   },
   {
     name: "BMW 7 Series",
@@ -16,6 +17,7 @@ const carsData = [
     seats: 5,
     luggage: 3,
     image: require("./images/BMW-7-Series-Transparent-PNG.png"),
+    amount:0,
   },
   {
     name: "Range Rover Sport",
@@ -25,6 +27,7 @@ const carsData = [
     seats: 7,
     luggage: 4,
     image: require("./images/tesla-model-s.jpg"),
+    amount:0,
   },
   {
     name: "Mercedes-Benz S-Class",
@@ -34,6 +37,7 @@ const carsData = [
     seats: 5,
     luggage: 2,
     image: require("./images/mercedes-benz-s-class.jpg"),
+    amount:0,
   },
   {
     name: "Tesla Model S",
@@ -43,6 +47,7 @@ const carsData = [
     seats: 5,
     luggage: 2,
     image: require("./images/Tesla-Model-S-PNG-Free-Image.png"),
+    amount:0,
   },
   {
     name: "Bentley Bentayga",
@@ -52,6 +57,7 @@ const carsData = [
     seats: 7,
     luggage: 4,
     image: require("./images/pngwing.com.png"),
+    amount:0,
   },
 ];
 

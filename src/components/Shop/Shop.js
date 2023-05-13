@@ -13,7 +13,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
+
+
+
+
 const dataFromLocalStorage = JSON.parse(localStorage.getItem("list") || "[]");
+
+
+
+
 
 const Shop = () => {
   const [list, setList] = useState(dataFromLocalStorage);
@@ -21,10 +29,6 @@ const Shop = () => {
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
   const [neolist, setNeolist] = useState(list);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-
-  useEffect(() => {
-    setNeolist(list);
-  }, [list]);
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(neolist));
@@ -35,25 +39,11 @@ const Shop = () => {
       const updatedCounts = [...prevCounts];
       updatedCounts[index] += increment;
       if (updatedCounts[index] === 1) {
+
         setList((prevList) => [...prevList, car]);
       }
-      return updatedCounts;
-    });
-  };
+console.log(cartCounts[index]+1);
 
-  const handleRemoveClick = (index) => {
-    setCartCounts((prevCounts) => {
-      const updatedCounts = [...prevCounts];
-      if (updatedCounts[index] > 0) {
-        updatedCounts[index]--;
-        if (updatedCounts[index] === 0) {
-          setList((prevList) => {
-            const updatedList = [...prevList];
-            updatedList.splice(index, 1);
-            return updatedList;
-          });
-        }
-      }
       return updatedCounts;
     });
   };
@@ -85,12 +75,12 @@ const Shop = () => {
   const handleRightClick = () => {
     const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
     setActiveCardIndex(newActiveCardIndex);
-    setOffset((1920 - 350) / 2 - newActiveCardIndex * 350);
+    setOffset((window - 350) / 2 - newActiveCardIndex * 350);
   };
 
   const handleCircleClick = (index) => {
     setActiveCardIndex(index);
-    setOffset((1920 - 350) / 2 - index * 350);
+    setOffset((window - 350) / 2 - index * 350);
   };
 
   const handleCardClick = (index) => {
@@ -125,6 +115,7 @@ const Shop = () => {
           <div className="title">Cars</div>
           <h2>Cars</h2>
         </div>
+
         <div className="cards-container">
           <Draggable
             axis="x"
@@ -141,6 +132,7 @@ const Shop = () => {
                 return (
                   <div
                     key={index}
+                    amount={cartCounts[index]}
                     className={`card ${
                       activeCardIndex === index ? "active-card" : ""
                     }`}
@@ -170,7 +162,7 @@ const Shop = () => {
                       <div className="btns">
                         <button
                           className="add-btn pls"
-                          onClick={() => handleRemoveClick(index)}
+                          onClick={() => handleAddClick(index, -1, car)}
                         >
                           -
                         </button>
@@ -213,11 +205,11 @@ const Shop = () => {
         <button className="cart-ico-main" onClick={handleCartToggle}>
           <div className="cart">
             <FontAwesomeIcon icon={faCartShopping} />
-            <div className="prod">{neolist.length}</div>
+            <div className="prod">{list.length}</div>
           </div>
         </button>
         <div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
-          {neolist.map((car, index, itm) => {
+          {neolist.map((car, index) => {
             return (
               <div key={index} className="card-itm">
                 <div className="inf">
@@ -226,7 +218,7 @@ const Shop = () => {
                   <div className="btns">
                     <button
                       className="add-btn pls"
-                      onClick={() => handleRemoveClick(index)}
+                      onClick={() => handleAddClick(index, -1, car)}
                     >
                       -
                     </button>
