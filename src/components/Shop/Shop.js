@@ -149,9 +149,9 @@ const Shop = () => {
         >
           <motion.div
             drag="x"
-            dragConstraints={{ right: 460, left: width }}
+            dragConstraints={{ right: 460, left: -width }}
             className=" cards inner-carousel"
-            style={{ transform: `translateX(-350px)` }}
+           
           >
             {carsData.map((car, index) => {
               return (
@@ -160,7 +160,6 @@ const Shop = () => {
                   className={`card ${
                     activeCardIndex === index ? "active-card" : ""
                   }`}
-                  style={{ transform: `translateX(-${offset}px)` }}
                   onClick={() => handleCardClick(index)}
                 >
                   <img className="car-img" src={car.image} alt={car.name} />
