@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
-import { motion } from "framer-motion";
 import carsData from "../API/CarsData";
 import classes from "./Shop.css";
 import cartcss from "./cart.css";
@@ -16,13 +15,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const dataFromLocalStorage = JSON.parse(localStorage.getItem("list") || "[]");
 
-
-
-
 const Shop = () => {
-
-
-
   const [list, setList] = useState(dataFromLocalStorage);
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
