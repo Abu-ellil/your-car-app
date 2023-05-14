@@ -151,7 +151,6 @@ const Shop = () => {
             drag="x"
             dragConstraints={{ right: 460, left: -width }}
             className=" cards inner-carousel"
-           
           >
             {carsData.map((car, index) => {
               return (
@@ -214,14 +213,14 @@ const Shop = () => {
             ></span>
           ))}
         </div>
-        <div className="controls">
-          <button className="left" onClick={handleLeftClick}>
-            <FontAwesomeIcon icon={faChevronLeft} />
-          </button>
-          <button className="right" onClick={handleRightClick}>
-            <FontAwesomeIcon icon={faChevronRight} />
-          </button>
-        </div>
+      </div>
+      <div className="controls">
+        <button className="left" onClick={handleLeftClick}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <button className="right" onClick={handleRightClick}>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
       </div>
       <div className="CartButton">
         <button className="cart-ico-main" onClick={handleCartToggle}>

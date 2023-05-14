@@ -155,7 +155,7 @@
 }
 
 .controls {
-  width: 100%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -168,7 +168,7 @@
   font-size: 18px;
   padding: 15px;
   border-radius: 50%;
-  bottom: 500px;
+  bottom: 370px;
 }
 .right {
   right: 0px;
@@ -179,7 +179,7 @@
   font-size: 18px;
   padding: 15px;
   border-radius: 50%;
-  bottom: 500px;
+  bottom: 370px;
 }
 .circles {
   display: flex;
