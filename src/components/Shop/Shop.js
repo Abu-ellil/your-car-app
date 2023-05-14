@@ -20,14 +20,44 @@ const dataFromLocalStorage = JSON.parse(localStorage.getItem("list") || "[]");
 
 
 const Shop = () => {
-
-
-
   const [list, setList] = useState(dataFromLocalStorage);
   const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
   const [neolist, setNeolist] = useState(list);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  // =============MOTION===============
+
+  const carsoulRef = useRef();
+  const [width, setWidth] = useState();
+
+  useEffect(() => {
+    setWidth(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
+  }, []);
+
+  // =============MOTION===============
+  const handleLeftClick = () => {
+    const newActiveCardIndex =
+      (activeCardIndex - 1 + carsData.length) % carsData.length;
+    setActiveCardIndex(newActiveCardIndex);
+    setOffset(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
+  };
+
+  const handleRightClick = () => {
+    const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
+    setActiveCardIndex(newActiveCardIndex);
+    setOffset(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
+  };
+
+  const handleCircleClick = (index) => {
+    setActiveCardIndex(index);
+    setOffset(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
+  };
+
+  const handleCardClick = (index) => {
+    setActiveCardIndex(index);
+  };
+  // =============MOTION===============
 
   useEffect(() => {
     setNeolist(list);
@@ -82,27 +112,7 @@ const Shop = () => {
     setList([]);
   };
 
-  const handleLeftClick = () => {
-    const newActiveCardIndex =
-      (activeCardIndex - 1 + carsData.length) % carsData.length;
-    setActiveCardIndex(newActiveCardIndex);
-    setOffset((1920 - 350) / 2 - newActiveCardIndex * 350);
-  };
-
-  const handleRightClick = () => {
-    const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
-    setActiveCardIndex(newActiveCardIndex);
-    setOffset((1920 - 350) / 2 - newActiveCardIndex * 350);
-  };
-
-  const handleCircleClick = (index) => {
-    setActiveCardIndex(index);
-    setOffset((1920 - 350) / 2 - index * 350);
-  };
-
-  const handleCardClick = (index) => {
-    setActiveCardIndex(index);
-  };
+  
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -127,75 +137,73 @@ const Shop = () => {
 
   return (
     <>
-      <div id="cars" className="cards-main">
+      <div id="cars" className="cards-main shop-container">
         <div className="cards-title">
           <div className="title">Cars</div>
           <h2>Cars</h2>
         </div>
-        <div className="cards-container">
-          <Draggable
-            axis="x"
-            nodeRef={containerRef}
-            onStart={handleTouchStart}
-            onStop={handleTouchEnd}
+        <motion.div
+          ref={carsoulRef}
+          className="cards-container carousel"
+          whileTap={"grabbing"}
+        >
+          <motion.div
+            drag="x"
+            dragConstraints={{ right: 460, left: width }}
+            className=" cards inner-carousel"
+            style={{ transform: `translateX(-350px)` }}
           >
-            <div
-              ref={containerRef}
-              className="cards"
-              style={{ transform: `translateX(-350px)` }}
-            >
-              {carsData.map((car, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={`card ${
-                      activeCardIndex === index ? "active-card" : ""
-                    }`}
-                    style={{ transform: `translateX(-${offset}px)` }}
-                    onClick={() => handleCardClick(index)}
-                  >
-                    <img className="car-img" src={car.image} alt={car.name} />
-                    <div className="car-name">
-                      <h3>{car.name}</h3>
-                      <p>{car.class}</p>
+            {carsData.map((car, index) => {
+              return (
+                <motion.div
+                  key={index}
+                  className={`card ${
+                    activeCardIndex === index ? "active-card" : ""
+                  }`}
+                  style={{ transform: `translateX(-${offset}px)` }}
+                  onClick={() => handleCardClick(index)}
+                >
+                  <img className="car-img" src={car.image} alt={car.name} />
+                  <div className="car-name">
+                    <h3>{car.name}</h3>
+                    <p>{car.class}</p>
+                  </div>
+                  <p className="description">{car.description}</p>
+                  <div className="add-cart-btn">
+                    <div className="info">
+                      <div>
+                        <p>
+                          <FontAwesomeIcon icon={faUsers} /> {car.seats} Seats
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          <FontAwesomeIcon icon={faSuitcase} /> {car.luggage}{" "}
+                          Luggage
+                        </p>
+                      </div>
                     </div>
-                    <p className="description">{car.description}</p>
-                    <div className="add-cart-btn">
-                      <div className="info">
-                        <div>
-                          <p>
-                            <FontAwesomeIcon icon={faUsers} /> {car.seats} Seats
-                          </p>
-                        </div>
-                        <div>
-                          <p>
-                            <FontAwesomeIcon icon={faSuitcase} /> {car.luggage}{" "}
-                            Luggage
-                          </p>
-                        </div>
-                      </div>
-                      <div className="btns">
-                        <button
-                          className="add-btn pls"
-                          onClick={() => handleRemoveClick(index)}
-                        >
-                          -
-                        </button>
-                        <span>{cartCounts[index]}</span>
-                        <button
-                          className="add-btn mns"
-                          onClick={() => handleAddClick(index, 1, car)}
-                        >
-                          +
-                        </button>
-                      </div>
+                    <div className="btns">
+                      <button
+                        className="add-btn pls"
+                        onClick={() => handleRemoveClick(index)}
+                      >
+                        -
+                      </button>
+                      <span>{cartCounts[index]}</span>
+                      <button
+                        className="add-btn mns"
+                        onClick={() => handleAddClick(index, 1, car)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </Draggable>
-        </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </motion.div>
         <div className="circles">
           {carsData.map((_, index) => (
             <span
