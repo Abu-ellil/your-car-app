@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  /* transition: all .1s ease-in-out; */
 }
 #root {
   margin: 0 auto;
@@ -44,6 +45,27 @@ code {
   border-radius: 6px;
 }
 
+@media (max-width: 1920px) {
+  }
+    .CartDropdown.visible {
+  transform: translateX(-120px);
+}
+@media (max-width: 1620px) {
+  }
+    .CartDropdown.visible {
+  transform: translateX(-90px);
+}
+@media (max-width: 1520px) {
+  }
+    .CartDropdown.visible {
+  transform: translateX(-70px);
+}
+@media (max-width: 1440px) {
+  }
+    .CartDropdown.visible {
+  transform: translateX(0px);
+  }
+
 @media (max-width: 1680px) {
   .nav {
     gap: 10%;
@@ -55,6 +77,12 @@ code {
   }
 }
 @media (max-width: 1250px) {
+  .CartDropdown {
+    top: 76px;
+    height: 92vh;
+    left: auto;
+    right: 0px;
+  }
   .main {
     width: 100%;
   }
@@ -125,23 +153,21 @@ code {
     padding: 19px;
     gap: 4rem;
   }
-  .hide {
-    display: block;
-  }
+ 
 }
 
 @media (max-width: 950px) {
   .CartButton {
     right: 41%;
   }
-  .CartDropdown {
-    width: 400px;
-    top: 133%;
-    right: -179%;
-  }
 }
 
 @media (max-width: 800px) {
+  .CartDropdown {
+    left: auto;
+    right: 0px;
+    width: -webkit-fill-available;
+  }
   .services {
     height: auto;
     background: #8d8b8b6c;
@@ -153,11 +179,7 @@ code {
     top: 41px;
     left: 16%;
   }
- .CartDropdown {
-    width: 538px;
-    top: 136%;
-    left: -381%;
-  }
+
   .hero-text {
     padding: 0rem 0rem;
     gap: 8rem;
@@ -168,24 +190,24 @@ code {
   .title {
     font-size: 5.5rem;
   }
-   .testimonials .title{
+  .testimonials .title {
     font-size: 4rem;
-   }
+  }
   .testimonials h2 {
     top: 38px;
     left: 24%;
-}
-.testimonials-card {
+  }
+  .testimonials-card {
     width: 102%;
-}
-.testimonials-card {
+  }
+  .testimonials-card {
     height: 502px;
   }
   .testmonial-car {
     position: absolute;
     right: 0rem;
     top: 38rem;
-}
+  }
   .services h2 {
     top: 40px;
     left: 31%;
@@ -265,7 +287,8 @@ code {
     padding: 10px;
   }
   .CartDropdown {
-    top: 133%;
-    left: -170px;
+    left: auto;
+    right: 0px;
+    width: -webkit-fill-available;
   }
 }

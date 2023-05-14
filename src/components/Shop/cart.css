@@ -24,17 +24,23 @@ svg:not(:host).svg-inline--fa {
 }
 .CartDropdown {
   background: linear-gradient(90deg, rgba(0, 9, 26, 0.89) 32.41%, #101927c9);
-  position: absolute;
+  position: fixed;
   padding: 11px;
   width: 350px;
-  min-height: 94vh;
-  top: 173%;
-  left: -270%;
-  display: none;
+  min-height: 90vh;
+  top: 97px;
   border: none;
+ left: 69.5%;
+ right: 0%;
+ transition: all .3s ease-in-out;
+ transform: translateX(-2220px);
+ opacity: 0;
 }
 .CartDropdown.visible {
   display: block;
+  transform: translateX(0px);
+  transition: all .3s ease-in-out;
+  opacity: 1;
 }
 .inf {
   display: flex;

@@ -96,11 +96,14 @@ const Nav = () => {
           </li>
         </div>
       </div>
+
+      {/* ================================================= */}
+
       <div className="nav-mini-bar" onClick={navToggel}>
         <FontAwesomeIcon icon={faBars} />
       </div>
-      <div className="dorp-navbar">
-        <div className={`drop-links ${isDroped ? "hide" : ""}`}>
+      <div className={`drop-links dorp-navbar ${isDroped ? "hide" : ""}`}>
+        <div>
           <li>
             <Link
               to="home"
