@@ -14,6 +14,7 @@ const Nav = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
+    setIsDroped(!isDroped);
   };
 
   useEffect(() => {

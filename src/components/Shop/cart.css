@@ -35,11 +35,13 @@ svg:not(:host).svg-inline--fa {
  transition: all .3s ease-in-out;
  transform: translateX(-2220px);
  opacity: 0;
+ overflow: hidden;
+ cursor: grabbing;
 }
 .CartDropdown.visible {
   display: block;
   transform: translateX(0px);
-  transition: all .3s ease-in-out;
+  transition: translate .3s ease-in-out;
   opacity: 1;
 }
 .inf {

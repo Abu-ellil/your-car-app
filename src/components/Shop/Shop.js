@@ -13,18 +13,24 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { counter } from "@fortawesome/fontawesome-svg-core";
 
 const dataFromLocalStorage = JSON.parse(localStorage.getItem("list") || "[]");
+const counterDataFromLocalStorage = JSON.parse(localStorage.getItem("counter") || 0);
+
 
 
 
 
 const Shop = () => {
   const [list, setList] = useState(dataFromLocalStorage);
-  const [offset, setOffset] = useState(0);
   const [cartCounts, setCartCounts] = useState(Array(carsData.length).fill(0));
   const [neolist, setNeolist] = useState(list);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const [cartCounter, setCartCounter] = useState(counterDataFromLocalStorage);
+  
+  console.log(cartCounts);
+  console.log(counterDataFromLocalStorage);
 
   // =============MOTION===============
 
@@ -40,32 +46,38 @@ const Shop = () => {
     const newActiveCardIndex =
       (activeCardIndex - 1 + carsData.length) % carsData.length;
     setActiveCardIndex(newActiveCardIndex);
-    setOffset(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
   };
 
   const handleRightClick = () => {
     const newActiveCardIndex = (activeCardIndex + 1) % carsData.length;
     setActiveCardIndex(newActiveCardIndex);
-    setOffset(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
   };
 
   const handleCircleClick = (index) => {
     setActiveCardIndex(index);
-    setOffset(carsoulRef.current.scrollWidth - carsoulRef.current.offsetWidth);
   };
 
   const handleCardClick = (index) => {
     setActiveCardIndex(index);
   };
   // =============MOTION===============
-
+useEffect(() => {
+  setCartCounter(neolist.length);
+}, [neolist]);
   useEffect(() => {
     setNeolist(list);
   }, [list]);
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
+
   }, [list]);
+ useEffect(() => {
+   localStorage.setItem("counter", JSON.stringify(cartCounter));
+ }, [cartCounter]);
+
+     
+      
 
   const handleAddClick = (index, increment, car) => {
     setCartCounts((prevCounts) => {
@@ -74,26 +86,28 @@ const Shop = () => {
       if (updatedCounts[index] === 1) {
         setList((prevList) => [...prevList, car]);
       }
+      
       return updatedCounts;
+        
     });
   };
 
-  const handleRemoveClick = (index) => {
-    setCartCounts((prevCounts) => {
-      const updatedCounts = [...prevCounts];
-      if (updatedCounts[index] > 0) {
-        updatedCounts[index]--;
-        if (updatedCounts[index] === 0) {
-          setList((prevList) => {
-            const updatedList = [...prevList];
-            updatedList.splice(index, 1);
-            return updatedList;
-          });
-        }
-      }
-      return updatedCounts;
-    });
-  };
+  // const handleRemoveClick = (index) => {
+  //   setCartCounts((prevCounts) => {
+  //     const updatedCounts = [...prevCounts];
+  //     if (updatedCounts[index] > 0) {
+  //       updatedCounts[index]--;
+  //       if (updatedCounts[index] === 0) {
+  //         setList((prevList) => {
+  //           const updatedList = [...prevList];
+  //           updatedList.splice(index, 1);
+  //           return updatedList;
+  //         });
+  //       }
+  //     }
+  //     return updatedCounts;
+  //   });
+  // };
 
   const handleDeleteClick = (index) => {
     setCartCounts((prevCounts) => {
@@ -184,7 +198,8 @@ const Shop = () => {
                     <div className="btns">
                       <button
                         className="add-btn pls"
-                        onClick={() => handleRemoveClick(index)}
+                        // onClick={() => handleRemoveClick(index)}
+                        onClick={() => handleAddClick(index, -1, car)}
                       >
                         -
                       </button>
@@ -222,51 +237,63 @@ const Shop = () => {
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </div>
-      <div className="CartButton">
+      <motion.div className="CartButton">
         <button className="cart-ico-main" onClick={handleCartToggle}>
           <div className="cart">
             <FontAwesomeIcon icon={faCartShopping} />
-            <div className="prod">{neolist.length}</div>
+            <div className="prod">{cartCounter}</div>
           </div>
         </button>
-        <div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
-          {neolist.map((car, index, itm) => {
-            return (
-              <div key={index} className="card-itm">
-                <div className="inf">
-                  <h3>{car.class}</h3>
-                  <p>{car.name}</p>
-                  <div className="btns">
-                    <button
-                      className="add-btn pls"
-                      onClick={() => handleRemoveClick(index)}
-                    >
-                      -
-                    </button>
-                    <span>{cartCounts[index] + 1}</span>
-                    <button
-                      className="add-btn mns"
-                      onClick={() => handleAddClick(index, 1, car)}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="delete-btn"
-                      onClick={() => handleDeleteClick(index)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </button>
-                  </div>
-                </div>
-                <img src={car.image} alt="" />
-              </div>
-            );
-          })}
+        <motion.div className={`CartDropdown ${isCartOpen ? "visible" : ""}`}>
+          <motion.div
+            className=""
+            initial={{ y: -1000 }}
+            animate={{ y: isCartOpen ? 0 : -1000 }}
+            transition={{ duration: 0.3 }}
+            drag="y"
+            dragConstraints={{ top: -550, bottom: 10 }} // Drag constraints
+          >
+            {neolist.map((car, index, itm) => {
+              return (
+                <motion.div className="ddd">
+                  <motion.div key={index} className="card-itm">
+                    <motion.div className="inf">
+                      <h3>{car.class}</h3>
+                      <p>{car.name}</p>
+                      <div className="btns">
+                        <button
+                          className="add-btn pls"
+                          // onClick={() => handleRemoveClick(index)}
+                          onClick={() => handleAddClick(index, -1, car)}
+                        >
+                          -
+                        </button>
+                        <span>{cartCounts[index] + 1}</span>
+                        <button
+                          className="add-btn mns"
+                          onClick={() => handleAddClick(index, 1, car)}
+                        >
+                          +
+                        </button>
+                        <button
+                          className="delete-btn"
+                          onClick={() => handleDeleteClick(index)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                      </div>
+                    </motion.div>
+                    <img src={car.image} alt="" />
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
           <button className="del-btn" onClick={delAll}>
             Delete All
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 };
