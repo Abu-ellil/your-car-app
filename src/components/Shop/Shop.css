@@ -9,7 +9,7 @@
   justify-content: center;
 }
 .carousel {
-  margin-top: 8rem;
+  margin-top: 2rem;
   cursor: grab;
 }
 .inner-carousel {
@@ -52,7 +52,7 @@
 }
 .cards-title {
   position: relative;
-  padding-bottom: 6rem;
+  padding-bottom: 1rem;
 }
 .cards-title h2 {
   font-size: 3rem;
