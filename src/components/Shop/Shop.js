@@ -78,19 +78,44 @@ useEffect(() => {
 
      
       
+const handleAddClick = (index, increment, car) => {
+  setCartCounts((prevCounts) => {
+    const updatedCounts = [...prevCounts];
+    updatedCounts[index] += increment;
 
-  const handleAddClick = (index, increment, car) => {
-    setCartCounts((prevCounts) => {
-      const updatedCounts = [...prevCounts];
-      updatedCounts[index] += increment;
-      if (updatedCounts[index] === 1) {
-        setList((prevList) => [...prevList, car]);
-      }
+    if (updatedCounts[index] === 0) {
+      setList((prevList) => {
+        const updatedList = [...prevList];
+        updatedList.splice(index, 1);
+        return updatedList;
+      });
+    } else {
+      setList((prevList) => {
+        if (!prevList.includes(car)) {
+          return [...prevList, car];
+        }
+        return prevList;
+      });
+    }
+
+    return updatedCounts.map((count) => Math.max(0, count)); 
+  });
+};
+
+
+
+  // const handleAddClick = (index, increment, car) => {
+  //   setCartCounts((prevCounts) => {
+  //     const updatedCounts = [...prevCounts];
+  //     updatedCounts[index] += increment;
+  //     if (updatedCounts[index] === 1) {
+  //       setList((prevList) => [...prevList, car]);
+  //     }
       
-      return updatedCounts;
+  //     return updatedCounts;
         
-    });
-  };
+  //   });
+  // };
 
   // const handleRemoveClick = (index) => {
   //   setCartCounts((prevCounts) => {
@@ -138,16 +163,6 @@ useEffect(() => {
     const updatedNeolist = [...new Set(list)];
     setNeolist(updatedNeolist);
   }, [list]);
-
-  const containerRef = useRef(null);
-
-  const handleTouchStart = (event) => {
-    event.stopPropagation();
-  };
-
-  const handleTouchEnd = (event) => {
-    const buttonId = event.target.id;
-  };
 
   return (
     <>
