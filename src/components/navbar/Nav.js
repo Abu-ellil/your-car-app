@@ -6,15 +6,23 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 const Nav = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
-
+  const [isNavMiniActive, setIsNavMiniActive] = useState(false);
   const [isDroped, setIsDroped] = useState(false);
+
+
+
+  const handleNavMiniToggle = ()=>{
+    setIsNavMiniActive(!isNavMiniActive)
+    setIsDroped(!isDroped);
+  }
+
   const navToggel = () => {
     setIsDroped(!isDroped);
   };
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
-    setIsDroped(!isDroped);
+    // setIsDroped(!isDroped);
   };
 
   useEffect(() => {
@@ -100,7 +108,7 @@ const Nav = () => {
 
       {/* ================================================= */}
 
-      <div className="nav-mini-bar" onClick={navToggel}>
+      <div className="nav-mini-bar" onClick={handleNavMiniToggle}>
         <FontAwesomeIcon icon={faBars} />
       </div>
       <div className={`drop-links dorp-navbar ${isDroped ? "hide" : ""}`}>

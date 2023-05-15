@@ -5,12 +5,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 4rem;
 }
 
 .testimonials h2 {
   font-size: 3rem;
   position: absolute;
-  top: 80px;
+  top: 145px;
   left: 40%;
   color: #fff;
 }
@@ -42,7 +43,7 @@
 .testmonial-car {
   position: absolute;
   right: 10rem;
-  top: 25rem;
+  top: 31rem;
 }
 .circle {
   position: absolute;
