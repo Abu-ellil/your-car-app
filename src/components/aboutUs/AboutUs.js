@@ -4,11 +4,12 @@ import aboutus from "../aboutUs/aboutus.css";
 const AboutUs = () => {
   return (
     <div id="about" className="about-us">
-      <div className="about-titles">
+     
+      <div className="about-content">
+         <div className="about-titles">
         <h1 className="title">ABOUT US</h1>
         <h2>About</h2>
       </div>
-      <div className="about-content">
         <p>
           YourCar is a luxury car dealership that offers a personalized and
           first-class experience to its clients. Our team of experienced
@@ -29,8 +30,9 @@ const AboutUs = () => {
           satisfied with their experience at YourCar.
         </p>
 
-        <img alt="car" src={require("../img/about.png")} />
+        
       </div>
+      <img alt="car" src={require("../img/about.png")} />
     </div>
   );
 };
