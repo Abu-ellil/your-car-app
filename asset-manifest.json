@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/your-car-app/static/css/main.1af5fc4a.css",
-    "main.js": "/your-car-app/static/js/main.333d61c0.js",
+    "main.css": "/your-car-app/static/css/main.d9e93d67.css",
+    "main.js": "/your-car-app/static/js/main.9460e7a6.js",
     "static/media/Cars.png": "/your-car-app/static/media/Cars.6aafb440dd1bab76d6e2.png",
     "static/media/Background.png": "/your-car-app/static/media/Background.6d7e6c607ec1a98c0796.png",
     "static/media/Porsche-911-Transparent-PNG.png": "/your-car-app/static/media/Porsche-911-Transparent-PNG.12fdcbe1c79d9ab82e93.png",
@@ -14,16 +14,16 @@
     "static/media/testmon-car.png": "/your-car-app/static/media/testmon-car.284d4a0cc407fc1b2258.png",
     "static/media/mercedes-benz-s-class.jpg": "/your-car-app/static/media/mercedes-benz-s-class.993f2c1fddb168566be9.jpg",
     "static/media/tesla-model-s.jpg": "/your-car-app/static/media/tesla-model-s.e6aab42d0ce02ebaf8dc.jpg",
-    "static/media/Union.png": "/your-car-app/static/media/Union.c5fb7e5251e6566f2c94.png",
+    "static/media/image 262.png": "/your-car-app/static/media/image 262.d920da8f946399ef0426.png",
     "static/media/11.svg": "/your-car-app/static/media/11.03639fb015b305ccafd97b6fa210fd96.svg",
     "static/media/star.svg": "/your-car-app/static/media/star.ac44dc3a6a597367c818626f498af494.svg",
     "index.html": "/your-car-app/index.html",
     "static/media/diamond.svg": "/your-car-app/static/media/diamond.3d97c894cd50bb5df5a4f15840e713eb.svg",
-    "main.1af5fc4a.css.map": "/your-car-app/static/css/main.1af5fc4a.css.map",
-    "main.333d61c0.js.map": "/your-car-app/static/js/main.333d61c0.js.map"
+    "main.d9e93d67.css.map": "/your-car-app/static/css/main.d9e93d67.css.map",
+    "main.9460e7a6.js.map": "/your-car-app/static/js/main.9460e7a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.1af5fc4a.css",
-    "static/js/main.333d61c0.js"
+    "static/css/main.d9e93d67.css",
+    "static/js/main.9460e7a6.js"
   ]
 }
