@@ -105,10 +105,10 @@ const Nav = (props) => {
           </li>
         </div>
       </div>
-      <div className="cart-icon"> <p className="counter">{props.count}</p>
+      <div className="cart-icon">
+        {" "}
+        <p className="counterTop">{props.count}</p>
         <FontAwesomeIcon icon={faShoppingCart} onClick={props.toggel} />
-        
-        
       </div>
       {/* ================================================= */}
 

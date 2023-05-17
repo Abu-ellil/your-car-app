@@ -12,8 +12,6 @@ import Shop from "./components/Shop/Shop";
 function App() {
   return (
     <div className="main">
-      
-      <div className="container">
         <Hero />
         <AboutUs />
         <Services />
@@ -22,7 +20,6 @@ function App() {
         <Testimonials />
         <Logos />
         <Footer />
-      </div>
     </div>
   );
 }

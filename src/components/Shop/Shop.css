@@ -1,9 +1,20 @@
-
+.main-shop{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .shop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
     width: 82vw;
     min-height: 73vh;
 }
 .car-container {
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,4 +107,14 @@ border-bottom-right-radius: 4px;
   position: inherit;
   color: #741906;
   top: -50px;
+}
+
+
+.koCOMj {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 90%;
+    direction: ltr;
 }

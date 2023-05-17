@@ -82,7 +82,7 @@ const handleDeleteAll = () => {
   }, []);
 
   return (
-    <div>
+    <div id="cars" className="main-shop">
       <Nav toggel={handleCartToggle} count={cartCount} />
       <div className="shop-container">
         <div className="cards-title">
