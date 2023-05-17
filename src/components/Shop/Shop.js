@@ -102,6 +102,8 @@ const handleAddClick = (index, increment, car) => {
   });
 };
 
+
+
   const handleDeleteClick = (index) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
@@ -181,7 +183,6 @@ const handleAddClick = (index, increment, car) => {
                     <div className="btns">
                       <button
                         className="add-btn pls"
-                       
                         onClick={() => handleAddClick(index, -1, car)}
                       >
                         -
