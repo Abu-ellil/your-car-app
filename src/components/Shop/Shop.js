@@ -102,38 +102,6 @@ const handleAddClick = (index, increment, car) => {
   });
 };
 
-
-
-  // const handleAddClick = (index, increment, car) => {
-  //   setCartCounts((prevCounts) => {
-  //     const updatedCounts = [...prevCounts];
-  //     updatedCounts[index] += increment;
-  //     if (updatedCounts[index] === 1) {
-  //       setList((prevList) => [...prevList, car]);
-  //     }
-      
-  //     return updatedCounts;
-        
-  //   });
-  // };
-
-  // const handleRemoveClick = (index) => {
-  //   setCartCounts((prevCounts) => {
-  //     const updatedCounts = [...prevCounts];
-  //     if (updatedCounts[index] > 0) {
-  //       updatedCounts[index]--;
-  //       if (updatedCounts[index] === 0) {
-  //         setList((prevList) => {
-  //           const updatedList = [...prevList];
-  //           updatedList.splice(index, 1);
-  //           return updatedList;
-  //         });
-  //       }
-  //     }
-  //     return updatedCounts;
-  //   });
-  // };
-
   const handleDeleteClick = (index) => {
     setCartCounts((prevCounts) => {
       const updatedCounts = [...prevCounts];
@@ -213,7 +181,7 @@ const handleAddClick = (index, increment, car) => {
                     <div className="btns">
                       <button
                         className="add-btn pls"
-                        // onClick={() => handleRemoveClick(index)}
+                       
                         onClick={() => handleAddClick(index, -1, car)}
                       >
                         -
@@ -266,7 +234,7 @@ const handleAddClick = (index, increment, car) => {
             animate={{ y: isCartOpen ? 0 : -1000 }}
             transition={{ duration: 0.3 }}
             drag="y"
-            dragConstraints={{ top: -550, bottom: 10 }} // Drag constraints
+            dragConstraints={{ top: -550, bottom: 10 }}
           >
             {neolist.map((car, index, itm) => {
               return (
