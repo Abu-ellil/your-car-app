@@ -1,206 +1,99 @@
-.shop-container {
-  width: 90%;
-  overflow: hidden;
-  padding-bottom: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
+.shop-container {
+    width: 82vw;
+    min-height: 73vh;
+}
+.car-container {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
-.carousel {
-  margin-top: 2rem;
-  cursor: grab;
+.car-card img {
+  height: 200px;
 }
-.inner-carousel {
-  display: flex;
-  gap: 3rem;
-}
-.carousel-container {
-  margin-bottom: 5rem;
-}
-.card {
-  min-height: 25rem;
-  width: 20rem;
-  padding: 40px 20px;
-}
-.car-img img {
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-.card-indicators {
-  display: flex;
-  gap: 1rem;
-}
-.indicator {
-  background-color: #8e8f8e5d;
-  border-radius: 50%;
-  width: 1.5rem;
-}
-.indicator.active {
-  border-radius: 6px;
-  display: inherit;
-  background-color: #741906;
-  padding: 12px 25px;
-  width: 1.5rem;
-  transition: 0.2s ease-in-out;
-}
-
-/* ===============CARSOUL============== */
 .cards-main {
-}
-.cards-title {
-  position: relative;
-  padding-bottom: 1rem;
-}
-.cards-title h2 {
-  font-size: 3rem;
-  position: absolute;
-  top: 70px;
-  left: 35%;
-  color: #6e0505;
-  padding: 10px;
-}
-.cards-wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
-  overflow: hidden;
-  padding: 30px;
+  justify-content: space-between;
+  gap: 20px;
 }
-.cards-container {
-  width: 100%;
-  overflow: hidden;
-}
-.cards {
-  display: flex;
-  width: 100%;
-  display: flex;
-  gap: 25px;
-  justify-content: center;
-  align-items: center;
-  /* transition: transform 0.3s ease; */
-  transform: translate(0px, 0px);
-}
+
 .card {
-  width: 355px;
-  height: 550px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 30px;
-  box-shadow: #12273d29 0 0px 13px;
-  cursor: grab;
+  width: 300px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.active-card {
-  border: 1px solid #64010159;
-  box-shadow: 0px 0px 2px #ff0000;
+
+.car-name {
+  margin-bottom: 10px;
 }
-/* .react-draggable-dragged{
-  transform: translate(0px, 0px);
-} */
-.car-img {
-  /* height: 160px; */
-  background-size: cover;
-}
+
 .car-name h3 {
-  color: #741906;
-  font-size: 20px;
-}
-.description {
-  font-size: 12px;
-}
-.add-cart-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: baseline;
+  margin: 0;
   font-size: 18px;
-}
-.info p span {
-  color: #741906;
+  font-weight: bold;
 }
 
-.btns {
+.car-name p {
+  margin: 0;
+  font-size: 14px;
+  color: #888888;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.counter {
   display: flex;
-  gap: 10px;
   align-items: center;
-}
-.btns span {
-  font-size: 24px;
-}
-.add-btn {
-  cursor: pointer;
-  font-size: 20px;
-  background-color: #741906;
-  padding: 2px 15px;
-  border: none;
-  color: #fff;
-}
-.pls {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-.mns {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.controls {
-  width: 98%;
-  display: flex;
-  justify-content: space-between;
+.counter input {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+
+.counter button {
+  width: 50px;
+  height: 30px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #741906;
+  border: none;
+  
+  cursor: pointer;
+}
+
+.minus{
+border-top-left-radius: 4px;
+border-bottom-left-radius: 4px;
+}
+.plus{
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+}
+.counter span{
+  font-size: 2rem;
+}
+
+
+.cards-title{
   position: relative;
 }
-.left {
-  position: absolute;
-  background-color: #741906;
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  padding: 15px;
-  border-radius: 50%;
-  bottom: 370px;
-}
-.right {
-  right: 0px;
-  position: absolute;
-  background-color: #741906;
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  padding: 15px;
-  border-radius: 50%;
-  bottom: 370px;
-}
-.circles {
-  display: flex;
-  gap: 20px;
-  padding: 1rem;
-  margin: auto;
-}
-
-.circles:hover {
-  cursor: pointer;
-}
-.circleA {
-  height: 20px;
-  width: 20px;
-  background-color: #5a5a5a3d;
-  border-radius: 50%;
-}
-.active-circle {
-  background-color: #6e0505;
-}
-.circlen {
-  background-color: #12273d;
-  border-radius: 50%;
+.cards-title h2{
+  font-size: 2.5rem;
+  position: inherit;
+  color: #741906;
+  top: -50px;
 }

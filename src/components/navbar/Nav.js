@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-const Nav = () => {
+const Nav = (props) => {
+
   const [activeLink, setActiveLink] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
   const [isNavMiniActive, setIsNavMiniActive] = useState(false);
   const [isDroped, setIsDroped] = useState(false);
 
-
-
-  const handleNavMiniToggle = ()=>{
-    setIsNavMiniActive(!isNavMiniActive)
+  const handleNavMiniToggle = () => {
+    setIsNavMiniActive(!isNavMiniActive);
     setIsDroped(!isDroped);
-  }
+  };
 
   const navToggel = () => {
     setIsDroped(!isDroped);
@@ -105,7 +105,11 @@ const Nav = () => {
           </li>
         </div>
       </div>
-
+      <div className="cart-icon"> <p className="counter">{props.count}</p>
+        <FontAwesomeIcon icon={faShoppingCart} onClick={props.toggel} />
+        
+        
+      </div>
       {/* ================================================= */}
 
       <div className="nav-mini-bar" onClick={handleNavMiniToggle}>
