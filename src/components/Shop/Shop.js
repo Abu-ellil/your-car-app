@@ -10,31 +10,19 @@ import {
 import carsData from "../API/CarsData";
 import { motion } from "framer-motion";
 import Carousel from "react-elastic-carousel";
-import '../Shop/Shop.css'
+import "../Shop/Shop.css";
 import "../Shop/neoCArt.css";
 import Nav from "../navbar/Nav";
 
-
-
-
-
-
-
 const Shop = () => {
-   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-   const [cartItems, setCartItems] = useState(initialCartItems);
+  const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const [cartItems, setCartItems] = useState(initialCartItems);
   const [cartCount, setCartCount] = useState(0);
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-
-
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
-
-
-
 
   const handleAddToCart = (car) => {
     setCartItems((prevCartItems) => [...prevCartItems, car]);
@@ -59,14 +47,14 @@ const Shop = () => {
     setCartCount((prevCartCount) => prevCartCount - 1);
   };
 
-const handleDeleteAll = () => {
-  setCartItems([]);
-  localStorage.removeItem("cartItems");
-};
+  const handleDeleteAll = () => {
+    setCartItems([]);
+    localStorage.removeItem("cartItems");
+  };
 
   const handleCartToggle = () => {
     setIsCartOpen(!isCartOpen);
-    console.log('don!!!');
+    console.log("don!!!");
   };
 
   useEffect(() => {
@@ -142,10 +130,6 @@ const handleDeleteAll = () => {
       {/* ====================CART========================== */}
 
       <div className="cart-container">
-        {/* <button className="cart-btn" onClick={handleCartToggle}>
-          ({cartCount})
-        </button> */}
-
         {isCartOpen && (
           <div className="cart-dropdown">
             {cartItems.length === 0 ? (
@@ -154,34 +138,40 @@ const handleDeleteAll = () => {
               <>
                 {cartItems.map((car, index) => (
                   <div className="cart-item" key={index}>
+                    <div className="cart-info">
+                      <div className="cart-item-details">
+                        <h3>{car.name}</h3>
+                        <p>{car.class}</p>
+                      </div>
+
+                      <div className="cart-btns">
+                        <div className="cart-item-counter">
+                          <button
+                            className="counter-btn"
+                            onClick={() => handleRemoveFromCart(index)}
+                          >
+                            <FontAwesomeIcon icon={faMinus} />
+                          </button>
+                          <span>
+                            {cartItems.filter((item) => item === car).length}
+                          </span>
+                          <button
+                            className="counter-btn"
+                            onClick={() => handleAddToCart(car)}
+                          >
+                            <FontAwesomeIcon icon={faCartPlus} />
+                          </button>
+                        </div>
+                        <button
+                          className="delete-btn"
+                          onClick={() => handleDeleteFromCart(index)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                      </div>
+                    </div>
+
                     <img src={car.image} alt={car.name} className="car-image" />
-                    <div className="cart-item-details">
-                      <h3>{car.name}</h3>
-                      <p>{car.class}</p>
-                    </div>
-                    <div className="cart-item-counter">
-                      <button
-                        className="counter-btn"
-                        onClick={() => handleRemoveFromCart(index)}
-                      >
-                        <FontAwesomeIcon icon={faMinus} />
-                      </button>
-                      <span>
-                        {cartItems.filter((item) => item === car).length}
-                      </span>
-                      <button
-                        className="counter-btn"
-                        onClick={() => handleAddToCart(car)}
-                      >
-                        <FontAwesomeIcon icon={faCartPlus} />
-                      </button>
-                    </div>
-                    <button
-                      className="delete-btn"
-                      onClick={() => handleDeleteFromCart(index)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </button>
                   </div>
                 ))}
                 <button className="delete-all-btn" onClick={handleDeleteAll}>
