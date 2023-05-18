@@ -46,10 +46,13 @@ code {
 }
 
 @media (max-width: 1920px) {
+  .cart-container{
+    transform: translateX(520px);
   }
+      
     .CartDropdown.visible {
   transform: translateX(-120px);
-}
+}}
 @media (max-width: 1620px) {
   }
     .CartDropdown.visible {
@@ -77,12 +80,9 @@ code {
   }
 }
 @media (max-width: 1250px) {
-  .CartDropdown {
-    top: 76px;
-    height: 92vh;
-    left: auto;
-    right: 0px;
-  }
+  .cart-container {
+    right: 402px;
+    transform: translateX(400px);}
   .main {
     width: 100%;
   }
@@ -189,9 +189,9 @@ code {
     top: 77px;
   }
   .cards-title h2 {
-    top: 41px;
-    left: 16%;
-  }
+    top: -47px;
+    left: 7%;
+}
 
   .hero-text {
     padding: 0rem 0rem;
@@ -255,9 +255,13 @@ code {
 }
 
 @media (max-width: 500px) {
-  .car-card img {
-  
-    
+.cart-dropdown {
+    width: 100%;
+    height: 92vh;
+    top: 78;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
   form {
     display: flex;
@@ -311,4 +315,28 @@ code {
     right: 0px;
     width: -webkit-fill-available;
   }
+  .cars-gallery{
+        width: 100%;
+    height: 120vh;
+  }
+  .testimonials h2 {
+    font-size: 2rem;
+    top: 97px;
+    left: 30%;
+}
+.testimonials {
+    gap: 0rem;
+}
+.cards-title h2 {
+    top: -46px;
+    left: 4%;
+}
+.content {
+    gap: 6rem;
+    align-items: center;
+}
+.cart-container{
+  width:100% ;
+  display: flex;
+}
 }

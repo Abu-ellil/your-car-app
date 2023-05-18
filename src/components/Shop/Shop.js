@@ -13,6 +13,7 @@ import Carousel from "react-elastic-carousel";
 import "../Shop/Shop.css";
 import "../Shop/neoCArt.css";
 import Nav from "../navbar/Nav";
+import Draggable from "react-draggable";
 
 const Shop = () => {
   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -69,27 +70,32 @@ const Shop = () => {
     }
   }, []);
 
-// ===============================================
+  // ===============================================
 
-const cardRef = useRef();
-const [width, setWidth] = useState(0);
-const [isMobileView, setIsMobileView] = useState(false);
+  const cardRef = useRef();
+  const [width, setWidth] = useState(0);
+  const [isMobileView, setIsMobileView] = useState(false);
 
-useEffect(() => {
-  setWidth(cardRef.current.scrollWidth - cardRef.current.offsetWidth);
-  const handleResize = () => {
-    setIsMobileView(window.innerWidth < 768);
-  };
-  handleResize();
-  window.addEventListener("resize", handleResize);
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-}, []);
+ const handleDragStart = (e) => {
+   e.stopPropagation();
+ };
 
-const carouselItemsToShow = isMobileView ? 1 : 3;
 
-// ====================================================
+  useEffect(() => {
+    setWidth(cardRef.current.scrollWidth - cardRef.current.offsetWidth);
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const carouselItemsToShow = isMobileView ? 1 : 3;
+
+  // ====================================================
   return (
     <div id="cars" className="main-shop">
       <Nav toggel={handleCartToggle} count={cartCount} />
@@ -154,55 +160,69 @@ const carouselItemsToShow = isMobileView ? 1 : 3;
 
       <div className="cart-container">
         {isCartOpen && (
-          <div className="cart-dropdown">
-            {cartItems.length === 0 ? (
-              <h1>Your cart is empty</h1>
-            ) : (
-              <>
-                {cartItems.map((car, index) => (
-                  <div className="cart-item" key={index}>
-                    <div className="cart-info">
-                      <div className="cart-item-details">
-                        <h3>{car.name}</h3>
-                        <p>{car.class}</p>
-                      </div>
+          <Draggable handle=".drag-handle">
+            <div className="cart-dropdown activ">
+              <div className="cart-content">
+                {cartItems.length === 0 ? (
+                  <h1>Your cart is empty</h1>
+                ) : (
+                  <>
+                    {cartItems.map((car, index) => (
+                      <div className="cart-item" key={index}>
+                        <div className="cart-info">
+                          <div className="cart-item-details">
+                            <h3>{car.name}</h3>
+                            <p>{car.class}</p>
+                          </div>
 
-                      <div className="cart-btns">
-                        <div className="cart-item-counter">
-                          <button
-                            className="counter-btn"
-                            onClick={() => handleRemoveFromCart(index)}
-                          >
-                            <FontAwesomeIcon icon={faMinus} />
-                          </button>
-                          <span>
-                            {cartItems.filter((item) => item === car).length}
-                          </span>
-                          <button
-                            className="counter-btn"
-                            onClick={() => handleAddToCart(car)}
-                          >
-                            <FontAwesomeIcon icon={faCartPlus} />
-                          </button>
+                          <div className="cart-btns">
+                            <div className="cart-item-counter">
+                              <button
+                                className="counter-btn"
+                                onClick={() => handleRemoveFromCart(index)}
+                              >
+                                <FontAwesomeIcon icon={faMinus} />
+                              </button>
+                              <span>
+                                {
+                                  cartItems.filter((item) => item === car)
+                                    .length
+                                }
+                              </span>
+                              <button
+                                className="counter-btn"
+                                onClick={() => handleAddToCart(car)}
+                              >
+                                <FontAwesomeIcon icon={faCartPlus} />
+                              </button>
+                            </div>
+                            <button
+                              className="delete-btn"
+                              onClick={() => handleDeleteFromCart(index)}
+                            >
+                              <FontAwesomeIcon icon={faTrash} />
+                            </button>
+                          </div>
                         </div>
-                        <button
-                          className="delete-btn"
-                          onClick={() => handleDeleteFromCart(index)}
-                        >
-                          <FontAwesomeIcon icon={faTrash} />
-                        </button>
-                      </div>
-                    </div>
 
-                    <img src={car.image} alt={car.name} className="car-image" />
-                  </div>
-                ))}
-                <button className="delete-all-btn" onClick={handleDeleteAll}>
-                  Delete All
-                </button>
-              </>
-            )}
-          </div>
+                        <img
+                          src={car.image}
+                          alt={car.name}
+                          className="car-image"
+                        />
+                      </div>
+                    ))}
+                    <button
+                      className="delete-all-btn"
+                      onClick={handleDeleteAll}
+                    >
+                      Delete All
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </Draggable>
         )}
       </div>
     </div>

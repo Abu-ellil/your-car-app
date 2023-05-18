@@ -19,11 +19,15 @@
   left: auto;
   z-index: 110;
   /* padding: 20px; */
-  transform: translateX(520px);
+  transform: translateX(473px);
   transition: all 0.3s ease-in-out;
 }
 .cart-dropdown {
-  transform: translateX(2px);
+  transform: translateX(722px);
+  /* height: 300px; */
+}
+.cart-content {
+  overflow-y: auto;
 }
 .cart-items {
   margin-top: 20px;
@@ -51,6 +55,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 1rem;
 }
 
 .cart-item button {
