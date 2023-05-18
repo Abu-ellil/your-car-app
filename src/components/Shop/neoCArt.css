@@ -15,15 +15,15 @@
   align-items: center;
   width: 400px;
   top: 95px;
-  right: 95px;
+  right: auto;
+  left: auto;
   z-index: 110;
-  padding: 20px;
-  transform: translateX(52px);
+  /* padding: 20px; */
+  transform: translateX(520px);
   transition: all 0.3s ease-in-out;
 }
-.cart-dropdown{
-    background-color: #c7bfbe;
-transform: translateX(2px);
+.cart-dropdown {
+  transform: translateX(2px);
 }
 .cart-items {
   margin-top: 20px;
@@ -36,6 +36,8 @@ transform: translateX(2px);
 
 .cart-item {
   width: 380px;
+  height: 140px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,36 +47,50 @@ transform: translateX(2px);
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.cart-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.cart-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cart-item button {
   font-size: 16px;
-  color: #ffffff;
-  background-color: #741906;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 .cart-item img {
-  height: 90px;
+  width: 45%;
 }
-.delete-all {
+.delete-all-btn {
+  padding: 1rem 4rem;
   margin-top: 20px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 17px;
   color: #888888;
-}
-
-.delete-all button {
   font-size: 16px;
   color: #ffffff;
   background-color: #741906;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.delete-all button {
+  font-size: 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.counter-btn{
+  background-color: #741906;
+  color: #fff;
+}
+.delete-btn {
+  color: #12273d;
+  background-color: #06053d00;
 }
 .car-details {
   display: flex;
@@ -89,7 +105,7 @@ transform: translateX(2px);
 }
 .info p {
   color: #741906;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 .info svg {
   color: #12273d;
@@ -99,10 +115,10 @@ transform: translateX(2px);
   grid-template-columns: 1fr 1fr;
 }
 .info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: end;
 }
 
 .counterTop {
