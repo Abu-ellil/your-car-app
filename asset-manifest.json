@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/your-car-app/static/css/main.d9e93d67.css",
-    "main.js": "/your-car-app/static/js/main.9460e7a6.js",
+    "main.css": "/your-car-app/static/css/main.0619fcbd.css",
+    "main.js": "/your-car-app/static/js/main.b27ad7d9.js",
     "static/media/Cars.png": "/your-car-app/static/media/Cars.6aafb440dd1bab76d6e2.png",
     "static/media/Background.png": "/your-car-app/static/media/Background.6d7e6c607ec1a98c0796.png",
     "static/media/Porsche-911-Transparent-PNG.png": "/your-car-app/static/media/Porsche-911-Transparent-PNG.12fdcbe1c79d9ab82e93.png",
@@ -15,15 +15,15 @@
     "static/media/mercedes-benz-s-class.jpg": "/your-car-app/static/media/mercedes-benz-s-class.993f2c1fddb168566be9.jpg",
     "static/media/tesla-model-s.jpg": "/your-car-app/static/media/tesla-model-s.e6aab42d0ce02ebaf8dc.jpg",
     "static/media/image 262.png": "/your-car-app/static/media/image 262.d920da8f946399ef0426.png",
-    "static/media/11.svg": "/your-car-app/static/media/11.03639fb015b305ccafd97b6fa210fd96.svg",
-    "static/media/star.svg": "/your-car-app/static/media/star.ac44dc3a6a597367c818626f498af494.svg",
+    "static/media/11.svg": "/your-car-app/static/media/11.594ddd6b4037fdd10e916fbe700d38c8.svg",
+    "static/media/star.svg": "/your-car-app/static/media/star.c993270121a0a9e84d80d263d1fc4164.svg",
     "index.html": "/your-car-app/index.html",
-    "static/media/diamond.svg": "/your-car-app/static/media/diamond.3d97c894cd50bb5df5a4f15840e713eb.svg",
-    "main.d9e93d67.css.map": "/your-car-app/static/css/main.d9e93d67.css.map",
-    "main.9460e7a6.js.map": "/your-car-app/static/js/main.9460e7a6.js.map"
+    "static/media/diamond.svg": "/your-car-app/static/media/diamond.11497ea027f1b17c9ac1b51fcc214d42.svg",
+    "main.0619fcbd.css.map": "/your-car-app/static/css/main.0619fcbd.css.map",
+    "main.b27ad7d9.js.map": "/your-car-app/static/js/main.b27ad7d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9e93d67.css",
-    "static/js/main.9460e7a6.js"
+    "static/css/main.0619fcbd.css",
+    "static/js/main.b27ad7d9.js"
   ]
 }
